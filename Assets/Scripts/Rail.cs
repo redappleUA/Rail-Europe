@@ -3,22 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rail : MonoBehaviour, IWay
+public class Rail : Way
 {
     [SerializeField] City _cityA;
     [SerializeField] City _cityB;
     [SerializeField] int _buildResources;
-    public City CityA => _cityA;
-    public City CityB => _cityB;
-    public int BuildResources => _buildResources;
+    [SerializeField] List<Transform> _pointsForTranslate;
+    public override City CityA => _cityA;
+    public override City CityB => _cityB;
+    public override int BuildResources => _buildResources;
+    public override List<Transform> PointsForTranslate => _pointsForTranslate;
 
-    public void Show()
+    private void Start()
     {
-        gameObject.SetActive(true);
-    }
-
-    public void Hide()
-    {
+        WayService.AddRail(this);
         gameObject.SetActive(false);
     }
 }

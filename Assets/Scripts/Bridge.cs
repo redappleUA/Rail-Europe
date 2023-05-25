@@ -2,22 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bridge : MonoBehaviour, IWay
+public class Bridge : Way
 {
     [SerializeField] City _cityA;
     [SerializeField] City _cityB;
     [SerializeField] int _buildResources;
-    public City CityA => _cityA;
-    public City CityB => _cityB;
-    public int BuildResources => _buildResources;
+    [SerializeField] List<Transform> _pointsForTranslate;
+    public override City CityA => _cityA;
+    public override City CityB => _cityB;
+    public override int BuildResources => _buildResources;
+    public override List<Transform> PointsForTranslate => _pointsForTranslate;
 
-    public void Show()
+    private void Start()
     {
-        gameObject.SetActive(true);
-    }
-
-    public void Hide()
-    {
+        WayService.AddBridge(this);
         gameObject.SetActive(false);
     }
 }

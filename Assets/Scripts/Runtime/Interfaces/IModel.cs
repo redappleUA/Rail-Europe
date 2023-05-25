@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IModel<T>
 {
-    public List<T> Ways { get; }
+    public List<T> Elements { get; }
 }

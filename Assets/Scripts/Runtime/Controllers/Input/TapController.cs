@@ -7,10 +7,7 @@ using UnityEngine.InputSystem;
 
 public class TapController : MonoBehaviour
 {
-    public event Tap OnTapStarted;
-    public event Tap OnTapMoved;
-    public event Tap OnTapEnded;
-    public delegate void Tap(ClickableObject clickObject);
+    public event Action<ClickableObject> OnTapStarted, OnTapMoved, OnTapEnded;
 
     [SerializeField] Camera _camera;
 

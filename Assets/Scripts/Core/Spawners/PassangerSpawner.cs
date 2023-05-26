@@ -21,7 +21,7 @@ public class PassangerSpawner : MonoBehaviour, ISpawner
 
             yield return new WaitForSeconds(_timeBetweenSpawn);
 
-            Passanger passanger = new Passanger();
+            Passanger passanger = new Passanger(randomCity.CityName);
 
             randomCity.Passangers.Add(passanger);
             Debug.LogWarning("City " + randomCity.CityName + " has " + randomCity.Passangers.Count + " passangers." + 

@@ -12,7 +12,7 @@ public class RouteController : MonoBehaviour
     [SerializeField] TapController _tapController;
     [SerializeField] TrainController _trainController;
 
-    private List<City> _cities = new();
+    private List<CityNameReference> _cities = new();
     private Route _route = new();
     private Train _train;
 
@@ -26,7 +26,7 @@ public class RouteController : MonoBehaviour
 
     private void AddCityToList(ClickableObject clickableObject)
     {
-        var city = CityService.GetCityFromObject(clickableObject);
+        var city = CityService.GetCityNameReferenceFromObject(clickableObject);
 
         if (!_cities.Contains(city))
         {
@@ -62,10 +62,6 @@ public class RouteController : MonoBehaviour
             //Додаємо маршрут в потяг
             _train.Route = _route;
 
-            ////Відписуємося, щоб більше не створювало маршрути для цього потяга
-            //_tapController.OnTapMoved -= AddCityToList;
-            //_tapController.OnTapEnded -= MakeRoute;
-
             Debug.LogWarning("Route is created - fisrt: " + _train.Route.CitiesOnRoute[0] + "; last: " + _train.Route.CitiesOnRoute[^1] + 
                 ". Cities Count: " + _train.Route.CitiesOnRoute.Count);
         }
@@ -83,7 +79,7 @@ public class RouteController : MonoBehaviour
     {
         for(int i = 0; i < _cities.Count - 1; i++)
         {
-            City cityFrom = _cities[i], cityTo = _cities[i + 1];
+            City cityFrom = _cities[i].CityName, cityTo = _cities[i + 1].CityName;
 
             if(WayService.TryGetRail(cityFrom, cityTo, out Rail rail))
             {
@@ -105,7 +101,7 @@ public class RouteController : MonoBehaviour
     /// <returns></returns>
     private bool CheckInactiveRailBetweenCities()
     {
-        City cityFrom = _cities[0], cityTo = _cities[^1];
+        City cityFrom = _cities[0].CityName, cityTo = _cities[^1].CityName;
 
         if(WayService.TryGetRail(cityFrom, cityTo, out Rail rail))
         {
@@ -124,7 +120,7 @@ public class RouteController : MonoBehaviour
     {
         for (int i = 0; i < _cities.Count - 1; i++)
         {
-            City cityFrom = _cities[i], cityTo = _cities[i + 1];
+            City cityFrom = _cities[i].CityName, cityTo = _cities[i + 1].CityName;
 
             if (WayService.TryGetRail(cityFrom, cityTo, out Rail rail))
             {

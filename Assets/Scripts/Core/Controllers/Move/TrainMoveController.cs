@@ -1,11 +1,14 @@
 using BezierSolution;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class WayTracker : MonoBehaviour
+public class TrainMoveController : MonoBehaviour
 {
+    public event Action<Way> OnTrainStop;
+
     [SerializeField] BezierWalkerWithSpeed _walker;
     [SerializeField] Train _train;
     [SerializeField, Range(0f, 2f)] float _timeToStopSplineWalker, _timeToStopBeforeTranslating;
@@ -20,7 +23,7 @@ public class WayTracker : MonoBehaviour
     {
         _walker.onPathCompleted.AddListener(SwitchSpline);
         _walker.spline = _train.Route.WaysBetweenCities[0].GetComponent<BezierSpline>();
-        AddSplines();
+        AddSplines(ref _splines);
 
         _walker.speed = _train.Speed;
     }
@@ -57,17 +60,20 @@ public class WayTracker : MonoBehaviour
         }
 
         yield return new WaitForSeconds(_timeToStopBeforeTranslating);
+
+        OnTrainStop(previousSpline.GetComponent<Way>());
+
         yield return StartCoroutine(TranslateObject(nextSpline[0].transform.position)); //Translating to the nest spline
 
         _walker.spline = nextSpline;
     }
 
-    private void AddSplines()
+    private void AddSplines(ref List<BezierSpline> splines)
     {
         foreach(var way in _train.Route.WaysBetweenCities)
         {
             var spline = way.gameObject.GetComponent<BezierSpline>();
-           _splines.Add(spline); //TODO: SerializeField for BezierSpline
+            splines.Add(spline); //TODO: SerializeField for BezierSpline
         }
     }
     /// <summary>

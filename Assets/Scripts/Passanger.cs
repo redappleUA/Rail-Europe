@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Passanger
 {
-    public City CitySpawn { get; private set; } = CityService.GetRandomCity();
+    public City CitySpawn { get; set; }
     public City CityTo { get; private set; } = CityService.GetRandomCity();
+
+    public Passanger(City citySpawn)
+    {
+        CitySpawn = citySpawn;
+    }
 }

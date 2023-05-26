@@ -17,4 +17,16 @@ public static class Extensions
 
         return raycastResults.Count > 0;
     }
+
+    public static bool ContainsCity(this List<CityNameReference> cityNameReferences, City city)
+    {
+        foreach (var cityNameReference in cityNameReferences)
+        {
+            if (cityNameReference.CityName == city)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }

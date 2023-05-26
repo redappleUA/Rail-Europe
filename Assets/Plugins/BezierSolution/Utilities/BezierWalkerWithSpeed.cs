@@ -46,11 +46,10 @@ namespace BezierSolution
 		{
 			float targetSpeed = ( isGoingForward ) ? speed : -speed;
 
-            if (isStopped)
+            if (isStopped || spline == null)
             {
                 return;
             }
-
             Vector2 targetPos = spline.MoveAlongSpline( ref m_normalizedT, targetSpeed * deltaTime );	
 
 			transform.position = targetPos;

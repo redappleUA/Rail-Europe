@@ -40,6 +40,11 @@ public static class CityService
         return randomCity;
     }
 
+    public static CityNameReference GetRandomCityNameReference()
+    {
+        return Cities[Random.Range(0, CityService.Cities.Count)];
+    }
+
 
     public static City GetCurrentCity(Train train, Way way) 
     { 
@@ -64,5 +69,11 @@ public static class CityService
     public static void AddCity(CityNameReference city)
     {
         _cityModel.Elements.Add(city);
+    }
+
+    public static Sprite LoadCitySpite(City city)
+    {
+        Sprite citySprite = Resources.Load<Sprite>($"Sprites/cities/{city.ToString().ToLower().Trim()}");
+        return citySprite;
     }
 }

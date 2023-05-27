@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PassangerController : MonoBehaviour
+public class PassengerController : MonoBehaviour
 {
     [SerializeField] Train _train;
     [SerializeField] TrainMoveController _trainMoveController;
@@ -16,36 +16,43 @@ public class PassangerController : MonoBehaviour
         AddPassangersAtStart();
     }
 
-    private void TrainStop(Way way)
+    private void TrainStop(Way way) => StartCoroutine(TrainStopCoroutine(way));
+
+    private IEnumerator TrainStopCoroutine(Way way)
     {
         #region Check for destination
 
         for (int i = _train.Passengers.Count - 1; i >= 0; i--)
         {
-            var passenger = _train.Passengers[i];
+            var passenger = _train.Passengers[i].Passenger;
 
             if (passenger.CityTo == way.CityA || passenger.CityTo == way.CityB)
             {
                 Debug.LogWarning("Passenger arrived from: " + passenger.CitySpawn + "; To: " + passenger.CityTo);
 
+                Destroy(_train.Passengers[i].gameObject);
+                yield return new WaitUntil(() => _train.Passengers[i] == null);
+                Debug.Log("Passengers count after destroying: " + _train.Passengers.Count);
+
                 _train.Passengers.RemoveAt(i);
+                Debug.Log("Passengers count after removing: " + _train.Passengers.Count);
             }
         }
         #endregion
 
-        #region Add passangers
+        #region Add passengers
         if (_train.Passengers.Count < MAX_COUNT)
         {
             var cityNameRef = CityService.GetCityNameReference(CityService.GetCurrentCity(_train, way));
 
-            foreach (var passanger in cityNameRef.Passangers)
+            foreach (var passenger in cityNameRef.Passengers)
             {
-                if (_train.Route.CitiesOnRoute.ContainsCity(passanger.CityTo))
+                if (_train.Route.CitiesOnRoute.ContainsCity(passenger.CityTo))
                 {
                     Debug.LogWarning("Passanger has boarded a train:" + _train.Route.CitiesOnRoute[0].CityName + ", " + _train.Route.CitiesOnRoute[^1].CityName
-                    + "; from: " + passanger.CitySpawn + "; To: " + passanger.CityTo);
+                    + "; from: " + passenger.CitySpawn + "; To: " + passenger.CityTo);
 
-                    _train.Passengers.Add(passanger);
+                    PassengerService.AddPassengerToRain(ref _train, passenger);
 
                     if (_train.Passengers.Count == MAX_COUNT) break;
                 }
@@ -60,17 +67,17 @@ public class PassangerController : MonoBehaviour
     {
         int counter = 0;
 
-        foreach(var passanger in _train.Route.CitiesOnRoute[0].Passangers)
+        foreach(var passenger in _train.Route.CitiesOnRoute[0].Passengers)
         {
-            if (_train.Route.CitiesOnRoute.ContainsCity(passanger.CityTo))
+            if (_train.Route.CitiesOnRoute.ContainsCity(passenger.CityTo))
             {
-                _train.Passengers.Add(passanger);
+                PassengerService.AddPassengerToRain(ref _train, passenger);
                 counter++;
             }
 
             if (_train.Passengers.Count == MAX_COUNT) break;
         }
         if(counter > 0)
-            _train.Route.CitiesOnRoute[0].Passangers.RemoveRange(0, counter);
+            _train.Route.CitiesOnRoute[0].Passengers.RemoveRange(0, counter);
     }
 }

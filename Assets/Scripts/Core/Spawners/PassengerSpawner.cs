@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PassengerSpawner : MonoBehaviour, ISpawner
 {
-    [SerializeField] float _timeBetweenSpawn;
+    [SerializeField] float _timeBetweenSpawn, _timeDecreasePerSpawn;
     private bool _defeat = false;
     
     void Start()
@@ -25,18 +25,37 @@ public class PassengerSpawner : MonoBehaviour, ISpawner
                 cityTo = CityService.GetRandomCity();
             }
 
-            Passenger passenger = new(randomCity.CityName, CityService.GetRandomCity());
-            randomCity.Passengers.Add(passenger);
+            if (PassengerService.CheckForMaxSpawnCount(randomCity)) Debug.LogError($"Ñity {randomCity.name} is overcrowded"); //TODO:Defeat
 
-            Debug.LogWarning("City " + randomCity.CityName + " has " + randomCity.Passengers.Count + " passangers." + 
-                " New passanger going to " + passenger.CityTo);
+            Passenger passenger = new(randomCity.CityName, CityService.GetRandomCity());
+
+            PassengerAttached passengerAttached = SpawnPassengerAttached(ref randomCity, passenger);
+            while( passengerAttached == null )
+                yield return null;
+
+            randomCity.Passengers.Add(passengerAttached);
+
+            Debug.LogWarning($"City {randomCity.CityName} has {randomCity.Passengers.Count} passangers." + 
+                $" New passanger going to {passenger.CityTo}");
 
             yield return new WaitForSeconds(_timeBetweenSpawn);
+
+            if(_timeBetweenSpawn > 1)
+                _timeBetweenSpawn -= _timeDecreasePerSpawn;
+
 
             // if (Player has defeat) // TODO: Defeat
             // {
             //     _defeat = true;
             // }
         }
+    }
+
+    private PassengerAttached SpawnPassengerAttached(ref CityNameReference city, Passenger passenger)
+    {
+        var scenePassenger = PassengerService.InstantiateAttachedPassenger().GetComponent<PassengerAttached>();
+        scenePassenger.Construct(passenger, city);
+
+        return scenePassenger;
     }
 }

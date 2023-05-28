@@ -1,4 +1,6 @@
 using Core.Models;
+using Cysharp.Threading.Tasks;
+using Services;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -71,9 +73,9 @@ public static class CityService
         _cityModel.Elements.Add(city);
     }
 
-    public static Sprite LoadCitySpite(City city)
+    public static async UniTask<Sprite> LoadCitySpite(City city)
     {
-        Sprite citySprite = Resources.Load<Sprite>($"Sprites/cities/{city.ToString().ToLower().Trim()}");
+        var citySprite = await LoadResourceService.LoadSprite($"cities/{city.ToString().ToLower().Trim()}");
         return citySprite;
     }
 }

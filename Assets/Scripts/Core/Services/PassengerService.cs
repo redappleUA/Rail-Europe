@@ -4,16 +4,18 @@ using UnityEngine;
 
 public static class PassengerService
 {
-    public static void SetPassengerTransform(Train train, PassengerAttached passenger)
+    private const int MAX_SPAWN_COUNT = 4;
+    public static void SetPassengerTransform(IPassengerPosition positions, PassengerAttached passenger)
     {
-        for (int i = 0; i < train.PassengerPositions.Length; i++)
+        //for (int i = 0; i < positions.PassengerPositions.Length; i++)
+        for (int i = positions.PassengerPositions.Length - 1; i >= 0; i--)
         {
-            var positionTransform = train.PassengerPositions[i];
+            var positionTransform = positions.PassengerPositions[i];
             if (positionTransform != null && positionTransform.childCount == 0)
             {
                 passenger.transform.SetParent(positionTransform);
                 passenger.transform.localPosition = Vector3.zero;
-                passenger.transform.localScale = new Vector3(train.PassangerScale, train.PassangerScale, train.PassangerScale);
+                passenger.transform.localScale = Vector3.one;
             }
         }
     }
@@ -25,11 +27,8 @@ public static class PassengerService
         return passengerAttached;
     }
 
-    public static void AddPassengerToRain(ref Train train, Passenger passenger)
+    public static bool CheckForMaxSpawnCount(CityNameReference city)
     {
-        var scenePassenger = PassengerService.InstantiateAttachedPassenger().GetComponent<PassengerAttached>();
-        scenePassenger.Construct(passenger, train);
-
-        train.Passengers.Add(scenePassenger);
+        return city.Passengers.Count >= MAX_SPAWN_COUNT;
     }
 }

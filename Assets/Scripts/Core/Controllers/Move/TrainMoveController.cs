@@ -2,7 +2,7 @@ using BezierSolution;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
+using UnityEditor.U2D.Path;
 using UnityEngine;
 
 public class TrainMoveController : MonoBehaviour
@@ -33,7 +33,7 @@ public class TrainMoveController : MonoBehaviour
     private IEnumerator NextSpline()
     {
         StartCoroutine(_walker.StopWalkerForSeconds(_timeToStopSplineWalker));
-        
+ 
         if (_isForward)
         {
             _currentSplineIndex++;

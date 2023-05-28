@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,25 +6,32 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class PassengerAttached : MonoBehaviour
 {
-    public Passenger Passenger { get; set; }
+    public Passenger Passenger { get; private set; }
+    public CityNameReference CityNameRefSpawn { get; private set; }
     public Train Train { get; set; }
     public Sprite CitySprite { get; private set; }
 
-    public void Construct(Passenger passenger, Train train)
+    public void Construct(Passenger passenger, CityNameReference citySpawn)
     {
         Passenger = passenger;
-        Train = train;
+        CityNameRefSpawn = citySpawn;
     }
 
-    void Start()
+    private void Start()
     {
-        CitySprite = CityService.LoadCitySpite(Passenger.CityTo);
+        _ = OnStart();
+    }
+
+    private async UniTaskVoid OnStart()
+    {
+        CitySprite = await CityService.LoadCitySpite(Passenger.CityTo);
+        CityNameRefSpawn = CityService.GetCityNameReference(Passenger.CitySpawn);
 
         var spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = CitySprite;
         spriteRenderer.sortingOrder = 2;
 
-        PassengerService.SetPassengerTransform(Train, this);
+        PassengerService.SetPassengerTransform(CityNameRefSpawn, this);
     }
 }
  

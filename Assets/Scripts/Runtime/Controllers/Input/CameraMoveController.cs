@@ -53,8 +53,8 @@ public class CameraMoveController : MonoBehaviour
         Vector2 touchPosition = _controls.Map.PrimaryTouchPosition.ReadValue<Vector2>();
         Vector2 originTouchPosition = _camera.ScreenToWorldPoint(touchPosition);
 
-        if (this.IsPointerOverUIObject(touchPosition))
-            yield break;
+        //if (this.IsPointerOverUIObject(touchPosition))
+        //    yield break;
 
         Ray ray = _camera.ScreenPointToRay(touchPosition);
 

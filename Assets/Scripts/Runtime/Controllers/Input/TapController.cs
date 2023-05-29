@@ -37,8 +37,8 @@ public class TapController : MonoBehaviour
 
         Vector2 touchPosition = _control.Map.PrimaryTouchPosition.ReadValue<Vector2>();
 
-        if (this.IsPointerOverUIObject(touchPosition))
-            return;
+        //if (this.IsPointerOverUIObject(touchPosition))
+        //    return;
 
         Ray ray = _camera.ScreenPointToRay(touchPosition);
 

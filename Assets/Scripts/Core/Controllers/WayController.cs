@@ -18,16 +18,20 @@ public class WayController
         
         if (CityTo == CityFrom) return;
 
-        (Rail, Bridge) ways = (null, null);
-        ways.Item1 = WayService.GetRail(CityFrom, CityTo);
-        ways.Item2 = WayService.GetBridge(CityFrom, CityTo);
+        (Rail rail, Bridge bridge) ways = (rail: null, bridge: null);
+        ways.rail = WayService.GetRail(CityFrom, CityTo);
+        ways.bridge = WayService.GetBridge(CityFrom, CityTo);
 
-        if (ways.Item1 != null)
-            ways.Item1.gameObject.SetActive(true);
-
-        else if (ways.Item2 != null)
-            ways.Item2.gameObject.SetActive(true);
-
+        if (ways.rail != null && ResourcesData.RailCount >= ways.rail.BuildResources)
+        {
+            ways.rail.gameObject.SetActive(true);
+            ResourcesData.RailCount -= ways.rail.BuildResources;
+        }
+        else if (ways.bridge != null && ResourcesData.BridgeCount >= ways.bridge.BuildResources)
+        {
+            ways.bridge.gameObject.SetActive(true);
+            ResourcesData.BridgeCount -= ways.bridge.BuildResources;
+        }
         else Debug.LogWarning("Way cannot be build");
 
     }

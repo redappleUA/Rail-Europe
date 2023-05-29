@@ -20,3 +20,19 @@
     font-size: 50%;
     color: rgb(51, 51, 51);
 }
+
+.button-menu {
+    background-color: rgba(88, 88, 88, 0);
+    background-image: resource('UI/buttons/continue_icon');
+    border-left-color: rgba(255, 255, 255, 0);
+    border-right-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-bottom-color: rgba(255, 255, 255, 0);
+    height: 50%;
+    width: 100%;
+    -unity-background-scale-mode: scale-and-crop;
+    -unity-slice-left: 0;
+    -unity-slice-top: 0;
+    -unity-slice-right: 0;
+    -unity-slice-bottom: 0;
+}

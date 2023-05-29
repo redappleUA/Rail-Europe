@@ -34,6 +34,7 @@ public class PassengerController : MonoBehaviour
                 yield return new WaitUntil(() => _train.Passengers[i] == null);
 
                 _train.Passengers.RemoveAt(i);
+                PassengerService.ArrivedPassengers++;
             }
         }
         #endregion

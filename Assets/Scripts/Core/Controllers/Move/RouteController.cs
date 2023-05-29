@@ -57,7 +57,12 @@ public class RouteController : MonoBehaviour
             RouteService.Routes.Add(_route);
 
             //Створюємо потяг на маршруті
-            _train = TrainSpawn(_route.WaysBetweenCities[0].transform.position);
+            if (ResourcesData.TrainCount > 0)
+            {
+                _train = TrainSpawn(_route.WaysBetweenCities[0].transform.position);
+                ResourcesData.TrainCount--;
+            }
+            else Debug.Log("Not enough resources"); //TODO: UI output
 
             //Додаємо маршрут в потяг
             _train.Route = _route;

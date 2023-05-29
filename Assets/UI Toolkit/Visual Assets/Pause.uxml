@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/hud.uss?fileID=7433441132597879392&amp;guid=011808ed470796e4a9dcb483674f64d7&amp;type=3#hud" />
+    <ui:GroupBox name="Screen" style="width: 100%; height: 100%; background-color: rgba(36, 34, 34, 0.43); justify-content: center; align-items: center; position: relative; top: auto; bottom: 1.1%; right: 0.32%;">
+        <ui:GroupBox name="ButtonBox" style="width: 25%; height: 40%; justify-content: space-between; align-items: center;">
+            <ui:Button display-tooltip-when-elided="true" name="ContinueButton" enable-rich-text="false" class="button button-menu" />
+            <ui:Button display-tooltip-when-elided="true" name="MainMenuButton" class="button-menu" style="background-image: resource(&apos;UI/buttons/main_menu_icon&apos;);" />
+        </ui:GroupBox>
+    </ui:GroupBox>
+</ui:UXML>

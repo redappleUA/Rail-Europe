@@ -4,6 +4,7 @@ using UnityEngine;
 
 public static class PassengerService
 {
+    public static int ArrivedPassengers { get; set; } = 0;
     private const int MAX_SPAWN_COUNT = 4;
     public static void SetPassengerTransform(IPassengerPosition positions, PassengerAttached passenger)
     {

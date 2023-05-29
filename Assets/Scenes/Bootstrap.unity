@@ -148,6 +148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 158627965}
   - component: {fileID: 158627966}
+  - component: {fileID: 158627967}
   m_Layer: 0
   m_Name: Pause
   m_TagString: Untagged
@@ -184,8 +185,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PanelSettings: {fileID: 11400000, guid: 666dd31467de10349b78378151c2c0f5, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: fd7caae0864a6b94f844f6638fa67783, type: 3}
   m_SortingOrder: 2
+--- !u!114 &158627967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158627964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ec3e1d67653f245b035062271a4011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _UIDocument: {fileID: 158627966}
 --- !u!4 &189047201 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1416702203511690368, guid: adaa924e68f969a47a48715858be3257, type: 3}
@@ -728,6 +742,7 @@ GameObject:
   - component: {fileID: 975551172}
   - component: {fileID: 975551171}
   - component: {fileID: 975551170}
+  - component: {fileID: 975551173}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -776,7 +791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timeBetweenSpawn: 10
-  _timeDecreasePerSpawn: 0
+  _timeDecreasePerSpawn: 0.1
 --- !u!114 &975551170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -817,6 +832,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _trainPrefab: {fileID: 8584534137482434853, guid: 798597f47cf24544197e95eb7d2d72bf, type: 3}
+--- !u!114 &975551173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975551165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8005b87c6411b34c975055ac01a46b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeToIncreaseRails: 15
+  _timeToIncreaseBridge: 40
+  _timeToIncreaseTrain: 60
 --- !u!4 &997490053 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2130295516100755997, guid: ae2e381130014bd428b38b0d413dce06, type: 3}
@@ -847,6 +877,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1152413883}
   - component: {fileID: 1152413884}
+  - component: {fileID: 1152413885}
   m_Layer: 0
   m_Name: HUD
   m_TagString: Untagged
@@ -885,6 +916,22 @@ MonoBehaviour:
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: d6a4b52beca18874aa641e8117441749, type: 3}
   m_SortingOrder: 1
+--- !u!114 &1152413885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152413882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f1921cf2c179bf4fa3430dc91cd1501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _UIDocument: {fileID: 1152413884}
+  _infoController: {fileID: 1420335009}
+  _pauseController: {fileID: 158627967}
+  _secondsToIncreaseDayCount: 60
 --- !u!4 &1171129219 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7863574814148001701, guid: 56c9ae9751f5afd458bf3d35bde4c798, type: 3}
@@ -1140,6 +1187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1420335007}
   - component: {fileID: 1420335008}
+  - component: {fileID: 1420335009}
   m_Layer: 0
   m_Name: Info
   m_TagString: Untagged
@@ -1176,8 +1224,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PanelSettings: {fileID: 11400000, guid: 666dd31467de10349b78378151c2c0f5, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 036bf4e41fdd53444b40a70ad2cd03f6, type: 3}
   m_SortingOrder: 0
+--- !u!114 &1420335009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420335006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1a31ae9db35a5b4fb1dd413701725bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1420604320 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9131064345249455282, guid: 2774681160fd4634988f23f5e6f2e3ce, type: 3}

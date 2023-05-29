@@ -13,6 +13,7 @@ public static class Extensions
         };
 
         List<RaycastResult> raycastResults = new();
+       // if (EventSystem.current == null) Debug.Log("EventSystem.current is null");
         EventSystem.current.RaycastAll(eventData, raycastResults);
 
         return raycastResults.Count > 0;

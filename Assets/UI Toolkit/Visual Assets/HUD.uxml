@@ -1,0 +1,33 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/hud.uss?fileID=7433441132597879392&amp;guid=011808ed470796e4a9dcb483674f64d7&amp;type=3#hud" />
+    <ui:GroupBox name="Screen" style="flex-shrink: 0; width: 99.5%; height: 99%; justify-content: space-between;">
+        <ui:VisualElement name="ButtonBox" style="width: 100%; height: 15%; align-items: flex-start; flex-direction: row;">
+            <ui:Button display-tooltip-when-elided="true" name="PauseButton" enable-rich-text="false" class="button" style="border-left-color: rgba(255, 255, 255, 0); border-right-color: rgba(255, 255, 255, 0); border-top-color: rgba(255, 255, 255, 0); border-bottom-color: rgba(255, 255, 255, 0);" />
+            <ui:Button display-tooltip-when-elided="true" name="InfoButton" enable-rich-text="true" class="button info-button" style="border-left-color: rgba(255, 255, 255, 0); border-right-color: rgba(255, 255, 255, 0); border-top-color: rgba(255, 255, 255, 0); border-bottom-color: rgba(255, 255, 255, 0);" />
+        </ui:VisualElement>
+        <ui:GroupBox name="LabelBox" style="height: 40%; width: auto; flex-direction: row; left: auto; right: 1%;">
+            <ui:GroupBox name="ResourcesBox" style="width: 50%; flex-direction: row;">
+                <ui:GroupBox name="Icons" style="width: 12%;">
+                    <ui:VisualElement name="RailIcon" style="height: 33%; background-image: resource(&apos;UI/buttons/rail_icon&apos;);" />
+                    <ui:VisualElement name="TrainIcon" style="height: 33%; background-image: resource(&apos;UI/buttons/train_icon&apos;);" />
+                    <ui:VisualElement name="BridgeIcon" style="height: 33%; background-image: resource(&apos;UI/buttons/bridge_icon&apos;);" />
+                </ui:GroupBox>
+                <ui:GroupBox name="Labels" style="width: 13%;">
+                    <ui:Label text="0" display-tooltip-when-elided="true" name="RailCount" enable-rich-text="true" class="label" style="font-size: 50%;" />
+                    <ui:Label text="0" display-tooltip-when-elided="true" name="TrainCount" enable-rich-text="true" class="label" style="font-size: 50%;" />
+                    <ui:Label text="0" display-tooltip-when-elided="true" name="BridgeCount" enable-rich-text="true" class="label" style="font-size: 50%;" />
+                </ui:GroupBox>
+            </ui:GroupBox>
+            <ui:GroupBox name="CountBox" style="width: 50%; flex-direction: row-reverse;">
+                <ui:GroupBox name="Icons" style="width: 12%; flex-direction: column-reverse;">
+                    <ui:VisualElement name="PassengerIcon" style="height: 33%; background-image: resource(&apos;UI/buttons/passengers_icon&apos;);" />
+                    <ui:VisualElement name="DayIcon" style="height: 33%; background-image: resource(&apos;UI/buttons/calendar_icon&apos;);" />
+                </ui:GroupBox>
+                <ui:GroupBox name="Labels" style="width: 13%; flex-direction: column-reverse;">
+                    <ui:Label display-tooltip-when-elided="true" name="PassengerCount" enable-rich-text="true" text="0" class="label" style="font-size: 50%; -unity-text-align: middle-right;" />
+                    <ui:Label display-tooltip-when-elided="true" name="DayCount" enable-rich-text="true" text="1" class="label" style="font-size: 50%; -unity-text-align: middle-right;" />
+                </ui:GroupBox>
+            </ui:GroupBox>
+        </ui:GroupBox>
+    </ui:GroupBox>
+</ui:UXML>

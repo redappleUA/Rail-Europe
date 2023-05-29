@@ -1,0 +1,22 @@
+.button {
+    background-image: resource('UI/buttons/pause_icon');
+    background-color: rgba(88, 88, 88, 0);
+    width: 8%;
+    height: 100%;
+}
+
+.info-button {
+    flex-direction: column;
+    left: 82%;
+    background-image: resource('UI/buttons/info_icon');
+    width: 7%;
+}
+
+.label {
+    height: 33%;
+    -unity-text-align: middle-left;
+    -unity-font-definition: none;
+    -unity-font: url('project://database/Assets/UI%20Toolkit/Fonts/Philosopher-Bold.ttf?fileID=12800000&guid=0a002b5c4ba7c314485adec4c461152e&type=3#Philosopher-Bold');
+    font-size: 50%;
+    color: rgb(51, 51, 51);
+}

@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/hud.uss?fileID=7433441132597879392&amp;guid=011808ed470796e4a9dcb483674f64d7&amp;type=3#hud" />
+    <ui:VisualElement name="Screen" style="width: 100%; height: 100%; background-color: rgba(153, 187, 191, 255); align-items: center; justify-content: center;">
+        <ui:GroupBox name="Container" style="align-items: center; justify-content: center; width: 50%; height: 75%;">
+            <ui:Label text="Rail Europe" display-tooltip-when-elided="true" name="Name" class="label" style="font-size: 80%;" />
+            <ui:Button display-tooltip-when-elided="true" name="PlayButton" enable-rich-text="true" style="background-color: rgba(88, 88, 88, 0); border-left-color: rgba(255, 255, 255, 0); border-right-color: rgba(255, 255, 255, 0); border-top-color: rgba(255, 255, 255, 0); border-bottom-color: rgba(255, 255, 255, 0); background-image: resource(&apos;UI/buttons/play_icon&apos;); width: 30%; height: 35%;" />
+            <ui:Label text="Record: " display-tooltip-when-elided="true" name="Record" enable-rich-text="true" style="width: 99%; height: 15%; font-size: 40%; -unity-text-align: middle-center; -unity-font-definition: none; -unity-font: url(&apos;project://database/Assets/UI%20Toolkit/Fonts/Philosopher-Bold.ttf?fileID=12800000&amp;guid=0a002b5c4ba7c314485adec4c461152e&amp;type=3#Philosopher-Bold&apos;); color: rgba(51, 51, 51, 255);" />
+        </ui:GroupBox>
+    </ui:VisualElement>
+</ui:UXML>

@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/UI%20Toolkit/hud.uss?fileID=7433441132597879392&amp;guid=011808ed470796e4a9dcb483674f64d7&amp;type=3#hud" />
     <ui:GroupBox name="Screen" style="width: 99.5%; height: 99%; justify-content: center;">
         <ui:GroupBox name="IconBox" style="height: 90%; flex-direction: row-reverse;">
-            <ui:VisualElement name="InfoIcon" style="background-image: resource(&apos;UI/info_windows/info_colors&apos;); height: 60%; width: 39%;" />
+            <ui:VisualElement name="InfoIcon" style="background-image: resource(&apos;UI/info_windows/info_colors&apos;); height: 69%; width: 39%;" />
         </ui:GroupBox>
     </ui:GroupBox>
 </ui:UXML>

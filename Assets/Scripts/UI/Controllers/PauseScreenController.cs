@@ -11,7 +11,6 @@ public class PauseScreenController : MonoBehaviour, IUIController, IUIActivator
 
     void Start()
     {
-        Initialize();
         Activate();
     }
 
@@ -29,8 +28,8 @@ public class PauseScreenController : MonoBehaviour, IUIController, IUIActivator
     {
         if (!gameObject.activeSelf)
         {
-            gameObject.SetActive(true);
             Time.timeScale = 0;
+            gameObject.SetActive(true);
         }
         else
         {

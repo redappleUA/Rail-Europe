@@ -7,25 +7,25 @@
         </ui:VisualElement>
         <ui:GroupBox name="LabelBox" style="height: 40%; width: auto; flex-direction: row; left: auto; right: 1%;">
             <ui:GroupBox name="ResourcesBox" style="width: 50%; flex-direction: row;">
-                <ui:GroupBox name="Icons" style="width: 12%;">
+                <ui:GroupBox name="Icons" style="width: 12%; height: 116%;">
                     <ui:VisualElement name="RailIcon" style="height: 33%; background-image: resource(&apos;UI/buttons/rail_icon&apos;);" />
                     <ui:VisualElement name="TrainIcon" style="height: 33%; background-image: resource(&apos;UI/buttons/train_icon&apos;);" />
                     <ui:VisualElement name="BridgeIcon" style="height: 33%; background-image: resource(&apos;UI/buttons/bridge_icon&apos;);" />
                 </ui:GroupBox>
-                <ui:GroupBox name="Labels" style="width: 13%;">
-                    <ui:Label text="0" display-tooltip-when-elided="true" name="RailCount" enable-rich-text="true" class="label" style="font-size: 50%;" />
+                <ui:GroupBox name="Labels" style="width: 13%; height: 106%;">
+                    <ui:Label text="0" display-tooltip-when-elided="true" name="RailCount" enable-rich-text="true" class="label" style="font-size: 50%; height: 33%;" />
                     <ui:Label text="0" display-tooltip-when-elided="true" name="TrainCount" enable-rich-text="true" class="label" style="font-size: 50%;" />
-                    <ui:Label text="0" display-tooltip-when-elided="true" name="BridgeCount" enable-rich-text="true" class="label" style="font-size: 50%;" />
+                    <ui:Label text="0" display-tooltip-when-elided="true" name="BridgeCount" enable-rich-text="true" class="label" style="font-size: 50%; height: 33%;" />
                 </ui:GroupBox>
             </ui:GroupBox>
             <ui:GroupBox name="CountBox" style="width: 50%; flex-direction: row-reverse;">
-                <ui:GroupBox name="Icons" style="width: 12%; flex-direction: column-reverse;">
+                <ui:GroupBox name="Icons" style="width: 12%; flex-direction: column-reverse; height: 106%;">
                     <ui:VisualElement name="PassengerIcon" style="height: 33%; background-image: resource(&apos;UI/buttons/passengers_icon&apos;);" />
                     <ui:VisualElement name="DayIcon" style="height: 33%; background-image: resource(&apos;UI/buttons/calendar_icon&apos;);" />
                 </ui:GroupBox>
-                <ui:GroupBox name="Labels" style="width: 13%; flex-direction: column-reverse;">
-                    <ui:Label display-tooltip-when-elided="true" name="PassengerCount" enable-rich-text="true" text="0" class="label" style="font-size: 50%; -unity-text-align: middle-right;" />
-                    <ui:Label display-tooltip-when-elided="true" name="DayCount" enable-rich-text="true" text="1" class="label" style="font-size: 50%; -unity-text-align: middle-right;" />
+                <ui:GroupBox name="Labels" style="width: 13%; flex-direction: column-reverse; height: 106%;">
+                    <ui:Label display-tooltip-when-elided="true" name="PassengerCount" enable-rich-text="true" text="0" class="label" style="font-size: 50%; -unity-text-align: middle-right; height: 27%;" />
+                    <ui:Label display-tooltip-when-elided="true" name="DayCount" enable-rich-text="true" text="1" class="label" style="font-size: 50%; -unity-text-align: middle-right; height: 33%;" />
                 </ui:GroupBox>
             </ui:GroupBox>
         </ui:GroupBox>

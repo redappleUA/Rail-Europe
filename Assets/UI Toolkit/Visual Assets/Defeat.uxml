@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/hud.uss?fileID=7433441132597879392&amp;guid=011808ed470796e4a9dcb483674f64d7&amp;type=3#hud" />
+    <ui:VisualElement name="Screen" style="width: 100%; height: 100%; background-color: rgba(60, 60, 60, 0.71); align-items: center; justify-content: center;">
+        <ui:GroupBox name="Container" style="width: 50%; height: 50%; justify-content: center; align-items: center;">
+            <ui:Label text="Game Over" display-tooltip-when-elided="true" name="Name" class="label" style="width: 50%; font-size: 70%; color: rgb(219, 203, 203);" />
+            <ui:Label display-tooltip-when-elided="true" name="Reason" enable-rich-text="false" style="width: 100%; height: 15%; -unity-font-definition: none; -unity-font: url(&apos;project://database/Assets/UI%20Toolkit/Fonts/Philosopher-Bold.ttf?fileID=12800000&amp;guid=0a002b5c4ba7c314485adec4c461152e&amp;type=3#Philosopher-Bold&apos;); font-size: 20%; -unity-text-align: middle-center;" />
+            <ui:Button display-tooltip-when-elided="true" name="MainMenuButton" class="button-menu" style="width: 50%; background-image: resource(&apos;UI/buttons/main_menu_icon&apos;);" />
+            <ui:Label text="Your score: " display-tooltip-when-elided="false" name="Record" enable-rich-text="false" class="label" style="font-size: 40%; color: rgb(219, 203, 203);" />
+        </ui:GroupBox>
+    </ui:VisualElement>
+</ui:UXML>

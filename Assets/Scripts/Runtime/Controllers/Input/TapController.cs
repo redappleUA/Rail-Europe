@@ -7,12 +7,13 @@ using UnityEngine.InputSystem;
 
 public class TapController : MonoBehaviour
 {
-    public event Action<ClickableObject> OnTapStarted, OnTapMoved, OnTapEnded;
+    public event Action<ClickableObject> OnTapStarted, OnTapMoved, OnTapEnded, OnOneTap;
 
     [SerializeField] Camera _camera;
 
     private Control _control = null;
     private Coroutine _coroutine = null;
+    private Transform _startTarget, _preLastTarget;
 
     private bool _isDragging = false;
     private bool _isTargetTouching = false;
@@ -58,6 +59,8 @@ public class TapController : MonoBehaviour
             OrderBy(hit => Vector3.Distance(hit.transform.position, ray.origin))
             .FirstOrDefault();
 
+        _startTarget = targetTransform;
+
         if (targetTransform != null && targets[targetTransform].IsValid)
         {
 
@@ -90,6 +93,8 @@ public class TapController : MonoBehaviour
             Transform targetTransform = targets.Keys.Where(hit => targets[hit] != null).
                 OrderBy(hit => Vector3.Distance(hit.transform.position, ray.origin))
                 .FirstOrDefault();
+
+            _preLastTarget = targetTransform;
 
             ClickableObject tap = null;
 
@@ -142,6 +147,10 @@ public class TapController : MonoBehaviour
   
             if (_isTargetTouching)
             {
+                if(_startTarget == targetTransform && _preLastTarget == targetTransform)
+                {
+                    OnOneTap(tap);
+                }
                 OnTapEnded(tap);
                 _isTargetTouching = false;
             }

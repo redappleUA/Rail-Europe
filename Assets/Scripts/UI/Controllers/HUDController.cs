@@ -8,10 +8,13 @@ public class HUDController : MonoBehaviour, IUIController
     [SerializeField] UIDocument _UIDocument;
     [SerializeField] InfoHUDController _infoController;
     [SerializeField] PauseScreenController _pauseController;
+    [SerializeField] DefeatController _defeatController;
     [SerializeField] int _secondsToIncreaseDayCount;
 
     private Button _pauseButton, _infoButton;
     private Label _railCount, _trainCount, _bridgeCount, _passengerCount, _dayCount;
+
+    public static int DayCount { get; private set; } = 1;
 
     void Start()
     {
@@ -42,19 +45,17 @@ public class HUDController : MonoBehaviour, IUIController
 
         _infoButton.clicked += _infoController.Activate;
         _pauseButton.clicked += _pauseController.Activate;
+        _pauseButton.clicked += _pauseController.Initialize;
     }
 
     IEnumerator IncreaseDayCount()
     {
-        int dayCount = 1;
-
-        //while (_defeat)
-        while(true)
+        while(!_defeatController.IsDefeat)
         {
             yield return new WaitForSeconds(_secondsToIncreaseDayCount);
 
-            dayCount++;
-            _dayCount.text = dayCount.ToString();
+            DayCount++;
+            _dayCount.text = DayCount.ToString();
         }
     }
 }

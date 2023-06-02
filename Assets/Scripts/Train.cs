@@ -10,4 +10,12 @@ public class Train : MonoBehaviour, IPassengerPosition
     public Transform[] PassengerPositions { get { return _passengerPositions; } }
     public Route Route { get; set; }
     public List<PassengerAttached> Passengers { get; private set; } = new();
+    public SpriteRenderer CitySpriteRenderer { get; private set; }
+    public Sprite CitySprite { get; private set; }
+
+    private void Awake()
+    {
+        CitySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        CitySprite = CitySpriteRenderer.sprite;
+    }
 }

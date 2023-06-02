@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Way : MonoBehaviour, IWay
+public abstract class Way : MonoBehaviour, IWay
 {
-    public virtual City CityA { get; }
+    public abstract City CityA { get; }
 
-    public virtual City CityB { get; }
+    public abstract City CityB { get; }
 
-    public virtual int BuildResources { get; }
+    public abstract int BuildResources { get; }
 
-    public virtual List<Transform> PointsForTranslate { get; }  
+    public abstract List<Transform> PointsForTranslate { get; }  
 
     public virtual void Show()
     {

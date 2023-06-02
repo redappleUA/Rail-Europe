@@ -1,13 +1,11 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-public class MainMenuController : MonoBehaviour
+public class MainMenuController : MonoBehaviour, IUIController
 {
     [SerializeField] UIDocument _UIDocument;
+    [SerializeField] Object _gameScene;
 
     private Button _playButton;
     private Label _scorelabel;
@@ -25,6 +23,6 @@ public class MainMenuController : MonoBehaviour
         _playButton = root.Q<Button>("PlayButton");
 
         _scorelabel.text += ScoreService.BestScore.ToString();
-        _playButton.clicked += delegate () { SceneManager.LoadSceneAsync("Bootstrap"); };
+        _playButton.clicked += delegate () { SceneManager.LoadSceneAsync(_gameScene.name); };
     }
 }

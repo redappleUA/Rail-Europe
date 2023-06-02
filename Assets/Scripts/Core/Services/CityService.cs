@@ -78,4 +78,10 @@ public static class CityService
         var citySprite = await LoadResourceService.LoadSprite($"cities/{city.ToString().ToLower().Trim()}");
         return citySprite;
     }
+
+    public static async UniTask<Sprite> LoadCityPushSpite(City city)
+    {
+        var citySprite = await LoadResourceService.LoadSprite($"cities_push/{city.ToString().ToLower().Trim()}_push");
+        return citySprite;
+    }
 }

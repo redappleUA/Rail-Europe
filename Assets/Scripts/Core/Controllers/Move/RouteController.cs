@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RouteController : MonoBehaviour
+public class RouteController : UIPopUp
 {
     public event TrainAction<Vector2> TrainSpawn;
     public delegate Train TrainAction<T>(T component);
@@ -28,7 +28,7 @@ public class RouteController : MonoBehaviour
     {
         var city = CityService.GetCityNameReferenceFromObject(clickableObject);
 
-        if (!_cities.Contains(city))
+        if (city != null && !_cities.Contains(city))
         {
             _cities.Add(city);
         }
@@ -67,10 +67,15 @@ public class RouteController : MonoBehaviour
             //Додаємо маршрут в потяг
             _train.Route = _route;
 
-            Debug.LogWarning("Route is created - fisrt: " + _train.Route.CitiesOnRoute[0] + "; last: " + _train.Route.CitiesOnRoute[^1] + 
+            Debug.LogWarning("Route is created - fisrt: " + _train.Route.CitiesOnRoute[0] + "; last: " + _train.Route.CitiesOnRoute[^1] +
                 ". Cities Count: " + _train.Route.CitiesOnRoute.Count);
         }
-        else Debug.LogWarning("Route not created.");
+        else if(_cities.Count > 2)
+        {
+            string text = "Route not created";
+            Debug.LogWarning(text);
+            OnTextPopUp.Invoke(text);
+        }
 
         //Чистимо список, щоб якщо false - заново створити маршрут
         _cities.Clear();

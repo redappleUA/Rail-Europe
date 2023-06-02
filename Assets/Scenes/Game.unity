@@ -200,6 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _UIDocument: {fileID: 158627966}
+  _bootstrap: {fileID: 102900000, guid: 67856073b0175bc44a55a8d51352898b, type: 3}
 --- !u!4 &189047201 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1416702203511690368, guid: adaa924e68f969a47a48715858be3257, type: 3}
@@ -390,6 +391,7 @@ Transform:
   - {fileID: 1152413883}
   - {fileID: 1420335007}
   - {fileID: 1290717718}
+  - {fileID: 1295940881}
   m_Father: {fileID: 1711575326}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -807,6 +809,8 @@ GameObject:
   - component: {fileID: 975551170}
   - component: {fileID: 975551173}
   - component: {fileID: 975551174}
+  - component: {fileID: 975551176}
+  - component: {fileID: 975551175}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -925,6 +929,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defeatScreen: {fileID: 426162574}
+--- !u!114 &975551175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975551165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2f5b5b2b96b514898c11be49d24534, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawner: {fileID: 975551176}
+--- !u!114 &975551176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975551165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f465adf7374e44c95bac56596661e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textPrefab: {fileID: 182815327366805286, guid: 1f1ae8b83396bd742918c987cb0d60d6, type: 3}
 --- !u!4 &997490053 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2130295516100755997, guid: ae2e381130014bd428b38b0d413dce06, type: 3}
@@ -1159,6 +1189,71 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _UIDocument: {fileID: 1290717719}
+  _trainInfoController: {fileID: 1295940883}
+  _tapController: {fileID: 957549486}
+--- !u!1 &1295940880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1295940881}
+  - component: {fileID: 1295940882}
+  - component: {fileID: 1295940883}
+  m_Layer: 0
+  m_Name: TrainInfo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1295940881
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295940880}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 345537417}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1295940882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295940880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 666dd31467de10349b78378151c2c0f5, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: a05c39ec86dd0ee49ae59d3f1dedf2ed, type: 3}
+  m_SortingOrder: 0
+--- !u!114 &1295940883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295940880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b1472ce0bd3a74d85a1444658c6263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _UIDocument: {fileID: 1295940882}
+  _cityInfoController: {fileID: 1290717720}
   _tapController: {fileID: 957549486}
 --- !u!4 &1327623422 stripped
 Transform:

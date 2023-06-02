@@ -17,6 +17,7 @@ public class TapController : MonoBehaviour
 
     private bool _isDragging = false;
     private bool _isTargetTouching = false;
+    private bool _isTrain;
 
     private void Awake()
     {
@@ -60,11 +61,12 @@ public class TapController : MonoBehaviour
             .FirstOrDefault();
 
         _startTarget = targetTransform;
+        _isTrain = targetTransform != null && targetTransform.TryGetComponent(out Train _);
 
         if (targetTransform != null && targets[targetTransform].IsValid)
         {
-
-            OnTapStarted(targets[targetTransform]);
+            if(!_isTrain)
+                OnTapStarted(targets[targetTransform]);
             _isDragging = true;
             _isTargetTouching = true;
         }
@@ -106,7 +108,8 @@ public class TapController : MonoBehaviour
 
                 if (_isTargetTouching)
                 {
-                    OnTapMoved?.Invoke(tap);
+                    if (!_isTrain)
+                        OnTapMoved?.Invoke(tap);
                 }
             }
             yield return null;
@@ -151,7 +154,8 @@ public class TapController : MonoBehaviour
                 {
                     OnOneTap(tap);
                 }
-                OnTapEnded(tap);
+                if (!_isTrain)
+                    OnTapEnded(tap);
                 _isTargetTouching = false;
             }
         }

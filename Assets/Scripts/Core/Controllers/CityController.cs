@@ -9,6 +9,7 @@ public class CityController : MonoBehaviour
     void Start()
     {
         _tapController.OnTapStarted += _wayController.GetCityFromForWay;
+        _tapController.OnTapMoved += _wayController.AddClickableObjects;
         _tapController.OnTapEnded += _wayController.TurnOnWay;
     }
 }

@@ -1,14 +1,15 @@
+using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class CityInfoController : MonoBehaviour, IUIController, IUIActivator
+public class CityInfoController : InfoController
 {
     [SerializeField] UIDocument _UIDocument;
+    [SerializeField] TrainInfoController _trainInfoController;
     [SerializeField] TapController _tapController;
 
-    private VisualElement[] _passengers = new VisualElement[4];
     private CityNameReference _clickedCity;
 
     private void Start()
@@ -17,9 +18,9 @@ public class CityInfoController : MonoBehaviour, IUIController, IUIActivator
         Activate();
     }
 
-    private void Open(ClickableObject clickableObject)
+    protected override void Open(ClickableObject clickableObject)
     {
-        if(clickableObject.TryGetComponent(out CityNameReference city))
+        if(!_trainInfoController.gameObject.activeSelf && clickableObject.TryGetComponent(out CityNameReference city))
         {
             Activate();
             if (gameObject.activeSelf)
@@ -27,28 +28,16 @@ public class CityInfoController : MonoBehaviour, IUIController, IUIActivator
                 _clickedCity = city;
                 Initialize();
             }
+            _ = ChangeSprite();
         }
     }
 
-    public void Activate()
-    {
-        if (!gameObject.activeSelf)
-        {
-            gameObject.SetActive(true);
-        }
-        else
-        {
-            gameObject.SetActive(false);
-        }
-    }
-
-    public void Initialize()
+    public override void Initialize()
     {
         var root = _UIDocument.rootVisualElement;
 
         var cityName = root.Q<Label>("CityName");
         cityName.text = _clickedCity.CityName.ToString();
-        cityName.style.color = Color.white;
 
         for (int i = 0; i < _clickedCity.Passengers.Count; i++)
         {
@@ -64,14 +53,11 @@ public class CityInfoController : MonoBehaviour, IUIController, IUIActivator
         }
     }
 
-    private Color GetColorFromSprite(Sprite sprite)
+    protected override async UniTaskVoid ChangeSprite()
     {
-        Texture2D texture = sprite.texture;
-        int centerX = texture.width / 2;
-        int centerY = texture.height / 2;
-
-        Color pixel = texture.GetPixel(centerX, centerY);
-
-        return pixel;
+        if (_clickedCity.CitySpriteRenderer.sprite == _clickedCity.CitySprite)
+            _clickedCity.CitySpriteRenderer.sprite = await CityService.LoadCityPushSpite(_clickedCity.CityName);
+        else
+            _clickedCity.CitySpriteRenderer.sprite = _clickedCity.CitySprite;
     }
 }

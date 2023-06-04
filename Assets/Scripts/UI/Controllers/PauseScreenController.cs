@@ -56,6 +56,8 @@ public class PauseScreenController : MonoBehaviour, IUIController, IUIActivator,
         {
             // Scene loaded successfully, you can access the loaded scene using handle.Result
             SceneInstance loadedScene = handle.Result;
+            ResourcesData.ResetCounts();
+
             Debug.Log("Loaded");
         }
         else

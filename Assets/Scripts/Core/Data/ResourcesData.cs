@@ -10,30 +10,32 @@ public class ResourcesData : ScriptableObject
     private int _railCount;
     private int _bridgeCount;
     private int _trainCount;
-    public static int RailCount { get { return Instance._railCount; } set { Instance._railCount = value; } }
-    public static int BridgeCount { get { return Instance._bridgeCount; } set { Instance._bridgeCount = value; } }
-    public static int TrainCount { get { return Instance._trainCount; } set { Instance._trainCount = value; } }
+    public static int RailCount { get { return _Instance._railCount; } set { _Instance._railCount = value; } }
+    public static int BridgeCount { get { return _Instance._bridgeCount; } set { _Instance._bridgeCount = value; } }
+    public static int TrainCount { get { return _Instance._trainCount; } set { _Instance._trainCount = value; } }
 
-    private static ResourcesData _instance;
-    private static ResourcesData Instance
+    private static ResourcesData m_instance;
+    private static ResourcesData _Instance
     {
         get
         {
-            if (_instance == null)
+            if (m_instance == null)
             {
-                _instance = Resources.Load<ResourcesData>("ResourcesData");
-                if (_instance == null)
+                m_instance = Resources.Load<ResourcesData>("ResourcesData");
+                if (m_instance == null)
                 {
                     Debug.LogError("ResourcesData asset not found. Create a ResourcesData asset using the Create menu.");
                 }
                 else
                 {
-                    _instance._railCount = _instance._railCountSerialize;
-                    _instance._bridgeCount = _instance._bridgeCountSerialize;
-                    _instance._trainCount = _instance._trainCountSerialize;
+                    m_instance._railCount = m_instance._railCountSerialize;
+                    m_instance._bridgeCount = m_instance._bridgeCountSerialize;
+                    m_instance._trainCount = m_instance._trainCountSerialize;
                 }
             }
-            return _instance;
+            return m_instance;
         }
     }
+
+    public static void ResetCounts() => m_instance = null;
 }

@@ -3,7 +3,7 @@
     <ui:VisualElement name="Screen" style="width: 100%; height: 100%; background-color: rgba(60, 60, 60, 0.71); align-items: center; justify-content: center;">
         <ui:GroupBox name="Container" style="width: 50%; height: 50%; justify-content: center; align-items: center;">
             <ui:Label text="Game Over" display-tooltip-when-elided="true" name="Name" class="label" style="width: 50%; font-size: 70%; color: rgb(219, 203, 203);" />
-            <ui:Label display-tooltip-when-elided="true" name="Reason" enable-rich-text="false" style="width: 100%; height: 15%; -unity-font-definition: none; -unity-font: url(&apos;project://database/Assets/UI%20Toolkit/Fonts/Philosopher-Bold.ttf?fileID=12800000&amp;guid=0a002b5c4ba7c314485adec4c461152e&amp;type=3#Philosopher-Bold&apos;); font-size: 20%; -unity-text-align: middle-center;" />
+            <ui:Label display-tooltip-when-elided="true" name="Reason" enable-rich-text="false" style="width: 100%; height: 15%; -unity-font-definition: none; -unity-font: url(&apos;project://database/Assets/Resources/Fonts/Philosopher-Bold.ttf?fileID=12800000&amp;guid=0a002b5c4ba7c314485adec4c461152e&amp;type=3#Philosopher-Bold&apos;); font-size: 20%; -unity-text-align: middle-center; color: rgba(209, 206, 206, 255);" />
             <ui:Button display-tooltip-when-elided="true" name="MainMenuButton" class="button-menu" style="width: 50%; background-image: resource(&apos;UI/buttons/main_menu_icon&apos;);" />
             <ui:Label text="Your score: " display-tooltip-when-elided="false" name="Record" enable-rich-text="false" class="label" style="font-size: 40%; color: rgb(219, 203, 203);" />
         </ui:GroupBox>

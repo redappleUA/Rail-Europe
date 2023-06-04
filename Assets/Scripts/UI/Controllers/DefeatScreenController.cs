@@ -1,9 +1,14 @@
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-public class DefeatScreenController : MonoBehaviour, IUIController, IUIActivator
+public class DefeatScreenController : MonoBehaviour, IUIController, IUIActivator, IUISceneLoader
 {
     [SerializeField] UIDocument _UIDocument;
+    [SerializeField] SceneInstance sceneReference;
 
     public string Reason { get; set; }
     private Label _reasonLabel, _scoreLabel;
@@ -25,6 +30,8 @@ public class DefeatScreenController : MonoBehaviour, IUIController, IUIActivator
         _reasonLabel.text = Reason;
         Debug.Log(_reasonLabel.text);
         _scoreLabel.text += ScoreService.Score.ToString();
+
+        _mainMenuButton.clicked += LoadScene;
     }
 
     public void Activate()
@@ -38,6 +45,27 @@ public class DefeatScreenController : MonoBehaviour, IUIController, IUIActivator
         {
             Time.timeScale = 1;
             gameObject.SetActive(false);
+        }
+    }
+
+    public void LoadScene()
+    {
+        AsyncOperationHandle<SceneInstance> loadHandle = Addressables.LoadSceneAsync(sceneReference, LoadSceneMode.Single, activateOnLoad: true);
+        loadHandle.Completed += OnSceneLoaded;
+    }
+
+    public void OnSceneLoaded(AsyncOperationHandle<SceneInstance> handle)
+    {
+        if (handle.Status == AsyncOperationStatus.Succeeded)
+        {
+            // Scene loaded successfully, you can access the loaded scene using handle.Result
+            SceneInstance loadedScene = handle.Result;
+            Debug.Log("Loaded");
+        }
+        else
+        {
+            // Failed to load the scene, handle the error
+            Debug.LogError($"Failed to load scene: {handle.OperationException}");
         }
     }
 }

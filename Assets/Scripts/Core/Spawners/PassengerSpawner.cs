@@ -32,7 +32,7 @@ public class PassengerSpawner : MonoBehaviour, ISpawner
                 yield break;
             }
 
-            Passenger passenger = new(randomCity.CityName, CityService.GetRandomCity());
+            Passenger passenger = new(randomCity.CityName, cityTo);
 
             PassengerAttached passengerAttached = SpawnPassengerAttached(ref randomCity, passenger);
             while( passengerAttached == null )

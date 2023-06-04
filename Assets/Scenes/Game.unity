@@ -200,7 +200,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _UIDocument: {fileID: 158627966}
-  _bootstrap: {fileID: 102900000, guid: 67856073b0175bc44a55a8d51352898b, type: 3}
+  sceneReference:
+    m_AssetGUID: 67856073b0175bc44a55a8d51352898b
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
 --- !u!4 &189047201 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1416702203511690368, guid: adaa924e68f969a47a48715858be3257, type: 3}
@@ -811,6 +815,7 @@ GameObject:
   - component: {fileID: 975551174}
   - component: {fileID: 975551176}
   - component: {fileID: 975551175}
+  - component: {fileID: 975551177}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -859,7 +864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defeatController: {fileID: 975551174}
-  _timeBetweenSpawn: 10
+  _timeBetweenSpawn: 15
   _timeDecreasePerSpawn: 0.1
 --- !u!114 &975551170
 MonoBehaviour:
@@ -914,8 +919,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timeToIncreaseRails: 15
-  _timeToIncreaseBridge: 40
-  _timeToIncreaseTrain: 60
+  _timeToIncreaseBridge: 90
+  _timeToIncreaseTrain: 80
 --- !u!114 &975551174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -955,6 +960,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textPrefab: {fileID: 182815327366805286, guid: 1f1ae8b83396bd742918c987cb0d60d6, type: 3}
+--- !u!114 &975551177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975551165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbd5f7d441a3e5844b345038a08dd3c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &997490053 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2130295516100755997, guid: ae2e381130014bd428b38b0d413dce06, type: 3}

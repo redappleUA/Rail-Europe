@@ -1,7 +1,12 @@
 using Core.Models;
+using System.Collections.Generic;
+using UnityEngine;
 
 public static class WayService
 {
+    public static List<Rail> Rails => _railModel.Elements;
+    public static List<Bridge> Bridges => _bridgeModel.Elements;
+
     private static RailModel _railModel = new();
     private static BridgeModel _bridgeModel = new();
 

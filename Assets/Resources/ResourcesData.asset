@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87cf3e5ce15c7ee458d43f99812f6c93, type: 3}
   m_Name: ResourcesData
   m_EditorClassIdentifier: 
-  _railCountSerialize: 20
-  _bridgeCountSerialize: 3
-  _trainCountSerialize: 3
+  _railCountSerialize: 40
+  _bridgeCountSerialize: 2
+  _trainCountSerialize: 2

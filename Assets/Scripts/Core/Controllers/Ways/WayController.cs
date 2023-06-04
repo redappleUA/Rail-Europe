@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class WayController : UIPopUp
@@ -30,6 +28,7 @@ public class WayController : UIPopUp
         if (CityTo == CityFrom) return;
 
         (Rail rail, Bridge bridge) ways = (rail: null, bridge: null);
+
         ways.rail = WayService.GetRail(CityFrom, CityTo);
         ways.bridge = WayService.GetBridge(CityFrom, CityTo);
 

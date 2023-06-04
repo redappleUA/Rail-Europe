@@ -14,6 +14,7 @@ public class TrainMoveController : MonoBehaviour
 
     private const float MAX_DISTANCE_TO_TRANSLATE = 1f;
 
+    BezierSpline previousSpline, nextSpline, newSpline;
     private List<BezierSpline> _splines = new();
     private int _currentSplineIndex = 0;
     private bool _isForward = true;
@@ -32,7 +33,20 @@ public class TrainMoveController : MonoBehaviour
     private IEnumerator NextSpline()
     {
         StartCoroutine(_walker.StopWalkerForSeconds(_timeToStopSplineWalker));
- 
+
+        // Знищити новий сплайн після того, як другий walker перейшов на наступний сплайн
+        if (newSpline != null)
+        {
+            Destroy(newSpline.gameObject);
+            _walker.spline = _splines[_currentSplineIndex];
+
+            if(_walker.spline == _train.Route.WaysBetweenCities[0].GetComponent<BezierSpline>() ||
+                _walker.spline == _train.Route.WaysBetweenCities[^1].GetComponent<BezierSpline>())
+            {
+                _walker.spline.InvertSpline();
+            }
+        }
+
         if (_isForward)
         {
             _currentSplineIndex++;
@@ -51,20 +65,37 @@ public class TrainMoveController : MonoBehaviour
                 _isForward = true;
             }
         }
-        BezierSpline previousSpline = _walker.spline, nextSpline = _splines[_currentSplineIndex];
-
-        if (CheckDistance(previousSpline[^1].transform.position, nextSpline[^1].transform.position, nextSpline[0].transform.position))
-        {
-            nextSpline.InvertSpline();
-        }
+        previousSpline = _walker.spline; 
+        nextSpline = _splines[_currentSplineIndex];
 
         yield return new WaitForSeconds(_timeToStopBeforeTranslating);
 
         OnTrainStop(previousSpline.GetComponent<Way>());
 
-        yield return StartCoroutine(TranslateObject(nextSpline[0].transform.position)); //Translating to the nest spline
+        if (CheckSplineForTrains(nextSpline))
+        {
+            // Створити новий сплайн на місці першого сплайна і інвертувати його
+            newSpline = Instantiate(nextSpline, nextSpline.transform.position, nextSpline.transform.rotation);
 
-        _walker.spline = nextSpline;
+            if (CheckDistance(previousSpline[^1].transform.position, newSpline[^1].transform.position, newSpline[0].transform.position) || (previousSpline == newSpline))
+            {
+                newSpline.InvertSpline();
+            }
+
+            _walker.spline = newSpline; // Встановити новий сплайн для другого walker
+
+            yield return StartCoroutine(TranslateObject(newSpline[0].transform.position)); // Translating to the next spline
+        }
+        else
+        {
+            if (CheckDistance(previousSpline[^1].transform.position, nextSpline[^1].transform.position, nextSpline[0].transform.position) || (previousSpline == nextSpline))
+            {
+                nextSpline.InvertSpline();
+            }
+
+            _walker.spline = nextSpline;
+            yield return StartCoroutine(TranslateObject(nextSpline[0].transform.position)); //Translating to the next spline    
+        }
     }
 
     private void AddSplines(ref List<BezierSpline> splines)
@@ -92,13 +123,27 @@ public class TrainMoveController : MonoBehaviour
 
     private IEnumerator TranslateObject(Vector2 targetPosition)
     {
-        if (Vector2.Distance(_walker.transform.position, targetPosition) > MAX_DISTANCE_TO_TRANSLATE)
-            yield break;
-
         while ((Vector2)_walker.transform.position != targetPosition)
         {
+            if (Vector2.Distance(_walker.transform.position, targetPosition) > MAX_DISTANCE_TO_TRANSLATE)
+                yield break;
+
             _walker.transform.position = Vector2.MoveTowards(_walker.transform.position, targetPosition, Time.deltaTime * _train.Speed);
             yield return null;
         }
+    }
+
+    private bool CheckSplineForTrains(BezierSpline spline)
+    {
+        foreach(var train in TrainService.Trains)
+        {
+            if (train == _train) continue;
+
+            var trainSpline = train.GetComponent<BezierWalkerWithSpeed>().spline;
+
+            if(trainSpline == spline)
+                return true;
+        }
+        return false;
     }
 }

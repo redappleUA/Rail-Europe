@@ -47,6 +47,7 @@ public class TrainMoveController : MonoBehaviour
             }
         }
 
+        //Вибирає індекс сплайну для вибору наступного сплайну walker'a
         if (_isForward)
         {
             _currentSplineIndex++;
@@ -65,6 +66,8 @@ public class TrainMoveController : MonoBehaviour
                 _isForward = true;
             }
         }
+
+        //Зберігаємо сплайни для інвертації їх
         previousSpline = _walker.spline; 
         nextSpline = _splines[_currentSplineIndex];
 
@@ -72,6 +75,7 @@ public class TrainMoveController : MonoBehaviour
 
         OnTrainStop(previousSpline.GetComponent<Way>());
 
+        //Якщо на сплайні 2 потяга є чи буде
         if (CheckSplineForTrains(nextSpline))
         {
             // Створити новий сплайн на місці першого сплайна і інвертувати його
@@ -86,6 +90,7 @@ public class TrainMoveController : MonoBehaviour
 
             yield return StartCoroutine(TranslateObject(newSpline[0].transform.position)); // Translating to the next spline
         }
+        //Інвертує, якщо потрібно, наступний сплайн
         else
         {
             if (CheckDistance(previousSpline[^1].transform.position, nextSpline[^1].transform.position, nextSpline[0].transform.position) || (previousSpline == nextSpline))
@@ -132,7 +137,11 @@ public class TrainMoveController : MonoBehaviour
             yield return null;
         }
     }
-
+    /// <summary>
+    /// Перевіряє сплайн на кількість потягів
+    /// </summary>
+    /// <param name="spline">Сплайн який потрібно перевірити</param>
+    /// <returns>True, якщо на сплайні > 1 потяга, інакше - false</returns>
     private bool CheckSplineForTrains(BezierSpline spline)
     {
         foreach(var train in TrainService.Trains)

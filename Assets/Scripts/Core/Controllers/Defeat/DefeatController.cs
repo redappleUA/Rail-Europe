@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class DefeatController : MonoBehaviour 
+public class DefeatController : MonoBehaviour
 {
     [SerializeField] DefeatScreenController _defeatScreen;
     public DefeatScreenController DefeatScreen => _defeatScreen;
@@ -10,9 +8,13 @@ public class DefeatController : MonoBehaviour
 
     private void Update()
     {
-        if(IsDefeat && !_defeatScreen.gameObject.activeSelf)
+        // Check if the defeat condition is met and the defeat screen is not active
+        if (IsDefeat && !_defeatScreen.gameObject.activeSelf)
         {
+            // Calculate the score
             ScoreService.CalculateScore();
+
+            // Activate and initialize the defeat screen
             _defeatScreen.Activate();
             _defeatScreen.Initialize();
         }

@@ -11,6 +11,11 @@ public class PassengerAttached : MonoBehaviour
     public Train Train { get; set; }
     public Sprite CitySprite { get; private set; }
 
+    /// <summary>
+    /// Contsructor
+    /// </summary>
+    /// <param name="passenger"></param>
+    /// <param name="citySpawn"></param>
     public void Construct(Passenger passenger, CityNameReference citySpawn)
     {
         Passenger = passenger;
@@ -27,6 +32,7 @@ public class PassengerAttached : MonoBehaviour
         CitySprite = await CityService.LoadCitySpite(Passenger.CityTo);
         CityNameRefSpawn = CityService.GetCityNameReference(Passenger.CitySpawn);
 
+        //Set sprite
         var spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = CitySprite;
         spriteRenderer.sortingOrder = 2;

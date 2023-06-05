@@ -773,6 +773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 519420031}
+  _vibrateController: {fileID: 0}
 --- !u!4 &957549487
 Transform:
   m_ObjectHideFlags: 0
@@ -914,7 +915,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timeToIncreaseRails: 15
   _timeToIncreaseBridge: 90
-  _timeToIncreaseTrain: 150
+  _timeToIncreaseTrain: 50
+  _defeatController: {fileID: 975551174}
 --- !u!114 &975551174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -978,8 +980,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93f1a057fca91c54494df740aa5a75a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vibrateDuration: 200
-  _amplitude: 50
+  _vibrateDuration: 5
+  _amplitude: 10
 --- !u!114 &975551179
 MonoBehaviour:
   m_ObjectHideFlags: 0

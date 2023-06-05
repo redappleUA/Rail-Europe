@@ -15,6 +15,10 @@ public class ResourcesData : ScriptableObject
     public static int TrainCount { get { return _Instance._trainCount; } set { _Instance._trainCount = value; } }
 
     private static ResourcesData m_instance;
+    
+    /// <summary>
+    /// Singletone instance of resources data
+    /// </summary>
     private static ResourcesData _Instance
     {
         get

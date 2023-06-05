@@ -5,6 +5,7 @@ using UnityEngine;
 public class ResourcesController : MonoBehaviour
 {
     [SerializeField] int _timeToIncreaseRails, _timeToIncreaseBridge, _timeToIncreaseTrain;
+    [SerializeField] DefeatController _defeatController;
 
     void Start()
     {
@@ -15,8 +16,7 @@ public class ResourcesController : MonoBehaviour
 
     IEnumerator IncreaseRails()
     {
-        //while (_defeat)
-        while (true)
+        while (!_defeatController.IsDefeat)
         {
             yield return new WaitForSeconds(_timeToIncreaseRails);
 
@@ -25,8 +25,7 @@ public class ResourcesController : MonoBehaviour
     }
     IEnumerator IncreaseBridges()
     {
-        //while (_defeat)
-        while (true)
+        while (!_defeatController.IsDefeat)
         {
             yield return new WaitForSeconds(_timeToIncreaseBridge);
 
@@ -35,8 +34,7 @@ public class ResourcesController : MonoBehaviour
     }
     IEnumerator IncreaseTrains()
     {
-        //while (_defeat)
-        while (true)
+        while (!_defeatController.IsDefeat)
         {
             yield return new WaitForSeconds(_timeToIncreaseTrain);
 

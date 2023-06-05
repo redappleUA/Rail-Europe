@@ -20,7 +20,7 @@ public class CityInfoController : InfoController
 
     protected override void Open(ClickableObject clickableObject)
     {
-        if(!_trainInfoController.gameObject.activeSelf && clickableObject.TryGetComponent(out CityNameReference city))
+        if (!_trainInfoController.gameObject.activeSelf && clickableObject.TryGetComponent(out CityNameReference city))
         {
             Activate();
             if (gameObject.activeSelf)
@@ -30,7 +30,7 @@ public class CityInfoController : InfoController
             }
             _ = ChangeSprite();
 
-            Vibration.Vibrate(_vibrateController.VibrateDuration);
+            Vibration.Vibrate(_vibrateController.VibrateDuration, _vibrateController.Amplitude);
         }
     }
 
@@ -38,9 +38,11 @@ public class CityInfoController : InfoController
     {
         var root = _UIDocument.rootVisualElement;
 
+        // Set up UI elements for city name
         var cityName = root.Q<Label>("CityName");
         cityName.text = _clickedCity.CityName.ToString();
 
+        // Set up UI elements for passengers
         for (int i = 0; i < _clickedCity.Passengers.Count; i++)
         {
             _passengers[i] = root.Q<VisualElement>($"Passenger{i + 1}");
@@ -57,9 +59,16 @@ public class CityInfoController : InfoController
 
     protected override async UniTaskVoid ChangeSprite()
     {
+        // Check if the current sprite is the same as the clicked city's sprite
         if (_clickedCity.CitySpriteRenderer.sprite == _clickedCity.CitySprite)
+        {
+            // Load and set a different sprite
             _clickedCity.CitySpriteRenderer.sprite = await CityService.LoadCityPushSpite(_clickedCity.CityName);
+        }
         else
+        {
+            // Set the original sprite
             _clickedCity.CitySpriteRenderer.sprite = _clickedCity.CitySprite;
+        }
     }
 }

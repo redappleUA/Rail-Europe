@@ -34,6 +34,7 @@ public class RouteController : UIPopUp
         {
             _cities.Add(city);
         }
+        Vibration.Vibrate(_vibrateController.VibrateDuration, _vibrateController.Amplitude);
     }
 
     private void MakeRoute(ClickableObject _)
@@ -69,7 +70,7 @@ public class RouteController : UIPopUp
             //Додаємо маршрут в потяг
             _train.Route = _route;
 
-            Vibration.Vibrate(_vibrateController.VibrateDuration);
+            Vibration.Vibrate(_vibrateController.VibrateDuration, _vibrateController.Amplitude);
 
             Debug.LogWarning("Route is created - fisrt: " + _train.Route.CitiesOnRoute[0] + "; last: " + _train.Route.CitiesOnRoute[^1] +
                 ". Cities Count: " + _train.Route.CitiesOnRoute.Count);

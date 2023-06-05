@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 public class DefeatScreenController : MonoBehaviour, IUIController, IUIActivator, IUISceneLoader
 {
     [SerializeField] UIDocument _UIDocument;
-    [SerializeField] SceneInstance sceneReference;
+    [SerializeField] AssetReference sceneReference;
 
     public string Reason { get; set; }
     private Label _reasonLabel, _scoreLabel;

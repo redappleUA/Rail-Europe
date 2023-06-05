@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using RDG;
 using Services;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ public class TrainInfoController : InfoController
     [SerializeField] UIDocument _UIDocument;
     [SerializeField] CityInfoController _cityInfoController;
     [SerializeField] TapController _tapController;
+    [SerializeField] VibrateController _vibrateController;
 
     private Train _clickedTrain;
 
@@ -30,6 +32,8 @@ public class TrainInfoController : InfoController
                 Initialize();
             }
             _ = ChangeSprite();
+
+            Vibration.Vibrate(_vibrateController.VibrateDuration);
         }
     }
 

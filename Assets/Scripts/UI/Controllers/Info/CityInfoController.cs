@@ -1,6 +1,5 @@
 using Cysharp.Threading.Tasks;
-using System.Collections;
-using System.Collections.Generic;
+using RDG;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -9,6 +8,7 @@ public class CityInfoController : InfoController
     [SerializeField] UIDocument _UIDocument;
     [SerializeField] TrainInfoController _trainInfoController;
     [SerializeField] TapController _tapController;
+    [SerializeField] VibrateController _vibrateController;
 
     private CityNameReference _clickedCity;
 
@@ -29,6 +29,8 @@ public class CityInfoController : InfoController
                 Initialize();
             }
             _ = ChangeSprite();
+
+            Vibration.Vibrate(_vibrateController.VibrateDuration);
         }
     }
 

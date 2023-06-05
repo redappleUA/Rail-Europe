@@ -144,9 +144,11 @@ Library: lib_burst_generated
 --compilation-defines=UNITY_INPUT_SYSTEM_ENABLE_PHYSICS2D
 --compilation-defines=UNITY_INPUT_SYSTEM_ENABLE_UI
 --compilation-defines=ENABLE_ANIMATION_BURST
+--compilation-defines=ENABLE_ASYNC_ASSETBUNDLE_UWR
 --compilation-defines=TIMELINE_FRAMEACCURATE
 --compilation-defines=ENABLE_SPRITESHAPE_BURST
 --compilation-defines=UNITASK_TEXTMESHPRO_SUPPORT
+--compilation-defines=UNITASK_ADDRESSABLE_SUPPORT
 --generate-link-xml=Temp\burst.link.xml
 --debug=Full
 --output=Q:\Unity\Rail-Europe\Temp\StagingArea\tempburstlibs\armeabi-v7a\lib_burst_generated
@@ -163,6 +165,8 @@ Library: lib_burst_generated
 --root-assembly=Q:\Unity\Rail-Europe\Temp\StagingArea\Data\Managed\Unity.Burst.dll
 --root-assembly=Q:\Unity\Rail-Europe\Temp\StagingArea\Data\Managed\Unity.2D.Animation.Runtime.dll
 --root-assembly=Q:\Unity\Rail-Europe\Temp\StagingArea\Data\Managed\Unity.TextMeshPro.dll
+--root-assembly=Q:\Unity\Rail-Europe\Temp\StagingArea\Data\Managed\Unity.Addressables.dll
+--root-assembly=Q:\Unity\Rail-Europe\Temp\StagingArea\Data\Managed\Unity.ResourceManager.dll
 --root-assembly=Q:\Unity\Rail-Europe\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
 --root-assembly=Q:\Unity\Rail-Europe\Temp\StagingArea\Data\Managed\Unity.Services.Core.dll
 --root-assembly=Q:\Unity\Rail-Europe\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
@@ -170,6 +174,7 @@ Library: lib_burst_generated
 --root-assembly=Q:\Unity\Rail-Europe\Temp\StagingArea\Data\Managed\Unity.Services.Core.Internal.dll
 --root-assembly=Q:\Unity\Rail-Europe\Temp\StagingArea\Data\Managed\Unity.Services.Core.Analytics.dll
 --root-assembly=Q:\Unity\Rail-Europe\Temp\StagingArea\Data\Managed\Unity.2D.SpriteShape.Runtime.dll
+--root-assembly=Q:\Unity\Rail-Europe\Temp\StagingArea\Data\Managed\Unity.ScriptableBuildPipeline.dll
 --root-assembly=Q:\Unity\Rail-Europe\Temp\StagingArea\Data\Managed\UniTask.DOTween.dll
 --root-assembly=Q:\Unity\Rail-Europe\Temp\StagingArea\Data\Managed\Unity.Services.Core.Scheduler.dll
 --root-assembly=Q:\Unity\Rail-Europe\Temp\StagingArea\Data\Managed\Unity.Services.Core.Registration.dll

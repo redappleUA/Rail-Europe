@@ -450,6 +450,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _UIDocument: {fileID: 426162575}
+  sceneReference:
+    m_AssetGUID: 67856073b0175bc44a55a8d51352898b
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
 --- !u!114 &426162575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -806,7 +811,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 975551167}
-  - component: {fileID: 975551168}
   - component: {fileID: 975551169}
   - component: {fileID: 975551172}
   - component: {fileID: 975551171}
@@ -816,6 +820,8 @@ GameObject:
   - component: {fileID: 975551176}
   - component: {fileID: 975551175}
   - component: {fileID: 975551177}
+  - component: {fileID: 975551179}
+  - component: {fileID: 975551178}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -838,19 +844,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &975551168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 975551165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1431e9016e1d054c94caf60f260dfb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tapController: {fileID: 957549486}
 --- !u!114 &975551169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -864,8 +857,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defeatController: {fileID: 975551174}
-  _timeBetweenSpawn: 15
-  _timeDecreasePerSpawn: 0.1
+  _timeBetweenSpawn: 12
+  _timeDecreasePerSpawn: 0.2
 --- !u!114 &975551170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -880,6 +873,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tapController: {fileID: 957549486}
   _trainController: {fileID: 975551171}
+  _vibrateController: {fileID: 975551178}
 --- !u!114 &975551171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -920,7 +914,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timeToIncreaseRails: 15
   _timeToIncreaseBridge: 90
-  _timeToIncreaseTrain: 80
+  _timeToIncreaseTrain: 150
 --- !u!114 &975551174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -972,6 +966,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbd5f7d441a3e5844b345038a08dd3c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &975551178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975551165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93f1a057fca91c54494df740aa5a75a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _vibrateDuration: 200
+  _amplitude: 50
+--- !u!114 &975551179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975551165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea826678d1cee1345b05b1772cd74fa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tapController: {fileID: 957549486}
+  _vibrateController: {fileID: 975551178}
 --- !u!4 &997490053 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2130295516100755997, guid: ae2e381130014bd428b38b0d413dce06, type: 3}
@@ -1208,6 +1230,7 @@ MonoBehaviour:
   _UIDocument: {fileID: 1290717719}
   _trainInfoController: {fileID: 1295940883}
   _tapController: {fileID: 957549486}
+  _vibrateController: {fileID: 975551178}
 --- !u!1 &1295940880
 GameObject:
   m_ObjectHideFlags: 0
@@ -1272,6 +1295,7 @@ MonoBehaviour:
   _UIDocument: {fileID: 1295940882}
   _cityInfoController: {fileID: 1290717720}
   _tapController: {fileID: 957549486}
+  _vibrateController: {fileID: 975551178}
 --- !u!4 &1327623422 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7246062437048209391, guid: d19453bc795f94e43b6de7f83d267e7f, type: 3}

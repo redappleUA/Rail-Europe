@@ -1,18 +1,28 @@
 using System.Collections.Generic;
+using RDG;
 using UnityEngine;
 
 public class WayController : UIPopUp
 {
+    [SerializeField] TapController _tapController;
+    [SerializeField] VibrateController _vibrateController;
     public City CityFrom { get; private set; }
     public City CityTo { get; private set; }
     private List<ClickableObject> _clickableObjects = new();
 
-    public void GetCityFromForWay(ClickableObject clickableObject)
+    private void Start()
+    {
+        _tapController.OnTapStarted += GetCityFromForWay;
+        _tapController.OnTapMoved += AddClickableObjects;
+        _tapController.OnTapEnded += TurnOnWay;
+    }
+
+    private void GetCityFromForWay(ClickableObject clickableObject)
     {
         CityFrom = CityService.GetCityFromObject(clickableObject);
     }
 
-    public void AddClickableObjects(ClickableObject clickableObject)
+    private void AddClickableObjects(ClickableObject clickableObject)
     {
         if (!_clickableObjects.Contains(clickableObject))
         {
@@ -21,7 +31,7 @@ public class WayController : UIPopUp
 
     }
 
-    public void TurnOnWay(ClickableObject clickableObject)
+    private void TurnOnWay(ClickableObject clickableObject)
     {
         CityTo = CityService.GetCityFromObject(clickableObject);
         
@@ -36,11 +46,15 @@ public class WayController : UIPopUp
         {
             ways.rail.gameObject.SetActive(true);
             ResourcesData.RailCount -= ways.rail.BuildResources;
+
+            Vibration.Vibrate(_vibrateController.VibrateDuration);
         }
         else if (ways.bridge != null && ResourcesData.BridgeCount >= ways.bridge.BuildResources)
         {
             ways.bridge.gameObject.SetActive(true);
             ResourcesData.BridgeCount -= ways.bridge.BuildResources;
+
+            Vibration.Vibrate(_vibrateController.VibrateDuration);
         }
         else
         {

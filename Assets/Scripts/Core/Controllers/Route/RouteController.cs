@@ -1,4 +1,5 @@
 using Core.Models;
+using RDG;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ public class RouteController : UIPopUp
 
     [SerializeField] TapController _tapController;
     [SerializeField] TrainController _trainController;
+    [SerializeField] VibrateController _vibrateController;
 
     private List<CityNameReference> _cities = new();
     private Route _route = new();
@@ -66,6 +68,8 @@ public class RouteController : UIPopUp
 
             //Додаємо маршрут в потяг
             _train.Route = _route;
+
+            Vibration.Vibrate(_vibrateController.VibrateDuration);
 
             Debug.LogWarning("Route is created - fisrt: " + _train.Route.CitiesOnRoute[0] + "; last: " + _train.Route.CitiesOnRoute[^1] +
                 ". Cities Count: " + _train.Route.CitiesOnRoute.Count);

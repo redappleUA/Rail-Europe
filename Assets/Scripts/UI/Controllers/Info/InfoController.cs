@@ -8,7 +8,7 @@ public abstract class InfoController : MonoBehaviour, IUIController, IUIActivato
 {
     protected VisualElement[] _passengers = new VisualElement[4];
 
-    protected abstract void Open(ClickableObject clickableObject);
+    protected abstract void Open(ClickableObjectView clickableObject);
     public abstract void Initialize();
     protected abstract UniTaskVoid ChangeSprite();
 

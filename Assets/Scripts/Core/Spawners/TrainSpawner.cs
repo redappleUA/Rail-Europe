@@ -5,9 +5,9 @@ using UnityEngine;
 public class TrainSpawner : MonoBehaviour
 {
     [SerializeField] GameObject _trainPrefab;
-    public Train Spawn()
+    public TrainView Spawn()
     {
-        var train = Instantiate(_trainPrefab).GetComponent<Train>();
+        var train = Instantiate(_trainPrefab).GetComponent<TrainView>();
         return train;
     }
 }

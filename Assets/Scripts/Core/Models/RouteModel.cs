@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace Core.Models
 {
-    internal class RouteModel : IModel<Route>
+    internal class RouteModel : IModel<RouteScheme>
     {
         /// <summary>
         /// Список всіх маршрутів
         /// </summary>
-        public List<Route> Elements { get; private set; } = new();
+        public List<RouteScheme> Elements { get; private set; } = new();
     }
 }

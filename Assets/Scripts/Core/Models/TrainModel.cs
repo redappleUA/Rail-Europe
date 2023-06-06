@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace Core.Models
 {
-    internal class TrainModel : IModel<Train>
+    internal class TrainModel : IModel<TrainView>
     {
-        public List<Train> Elements { get; private set; } = new();
+        public List<TrainView> Elements { get; private set; } = new();
     }
 }

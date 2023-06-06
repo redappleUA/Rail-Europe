@@ -32,9 +32,9 @@ public class PassengerSpawner : MonoBehaviour, ISpawner
                 yield break;
             }
 
-            Passenger passenger = new(randomCity.CityName, cityTo);
+            PassengerScheme passenger = new(randomCity.CityName, cityTo);
 
-            PassengerAttached passengerAttached = SpawnPassengerAttached(ref randomCity, passenger);
+            PassengerView passengerAttached = SpawnPassengerAttached(ref randomCity, passenger);
             while( passengerAttached == null )
                 yield return null;
 
@@ -50,9 +50,9 @@ public class PassengerSpawner : MonoBehaviour, ISpawner
         }
     }
 
-    private PassengerAttached SpawnPassengerAttached(ref CityNameReference city, Passenger passenger)
+    private PassengerView SpawnPassengerAttached(ref CityView city, PassengerScheme passenger)
     {
-        var scenePassenger = PassengerService.InstantiateAttachedPassenger().GetComponent<PassengerAttached>();
+        var scenePassenger = PassengerService.InstantiateAttachedPassenger().GetComponent<PassengerView>();
         scenePassenger.Construct(passenger, city);
 
         return scenePassenger;

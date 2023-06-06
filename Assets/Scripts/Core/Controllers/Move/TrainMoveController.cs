@@ -6,10 +6,10 @@ using UnityEngine;
 
 public class TrainMoveController : MonoBehaviour
 {
-    public event Action<Way> OnTrainStop;
+    public event Action<BaseWayView> OnTrainStop;
 
     [SerializeField] BezierWalkerWithSpeed _walker;
-    [SerializeField] Train _train;
+    [SerializeField] TrainView _train;
     [SerializeField, Range(0f, 2f)] float _timeToStopSplineWalker, _timeToStopBeforeTranslating;
 
     private const float MAX_DISTANCE_TO_TRANSLATE = 1f;
@@ -73,7 +73,7 @@ public class TrainMoveController : MonoBehaviour
 
         yield return new WaitForSeconds(_timeToStopBeforeTranslating);
 
-        OnTrainStop(previousSpline.GetComponent<Way>());
+        OnTrainStop(previousSpline.GetComponent<BaseWayView>());
 
         //Якщо на сплайні 2 потяга є чи буде
         if (CheckSplineForTrains(nextSpline))

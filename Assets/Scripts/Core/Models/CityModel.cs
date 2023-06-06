@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace Core.Models
 {
-    internal class CityModel : IModel<CityNameReference>
+    internal class CityModel : IModel<CityView>
     {
-        public List<CityNameReference> Elements { get; private set; } = new();
+        public List<CityView> Elements { get; private set; } = new();
     }
 }

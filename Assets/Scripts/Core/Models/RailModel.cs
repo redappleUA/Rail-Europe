@@ -7,8 +7,8 @@ namespace Core.Models
     /// <summary>
     /// Модель, що хранить в собі всі колії, які розміщені на мапі
     /// </summary>
-    internal class RailModel : IModel<Rail>
+    internal class RailModel : IModel<RailView>
     {
-        public List<Rail> Elements { get; private set; } = new();
+        public List<RailView> Elements { get; private set; } = new();
     }
 }

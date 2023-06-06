@@ -9,7 +9,7 @@ public class PopUpHandler : MonoBehaviour
 
     private void Start()
     {
-        UIPopUp.OnTextPopUp.AddListener(SpawnAndHandleText); 
+        BaseUIPopUp.OnTextPopUp.AddListener(SpawnAndHandleText); 
     }
 
     public void SpawnAndHandleText(string text)

@@ -5,7 +5,7 @@ public class TrainController : MonoBehaviour
     [SerializeField] TrainSpawner _spawner;
 
     // Handle the train by spawning it at the specified position
-    public Train HandleTrain(Vector2 trainPosition)
+    public TrainView HandleTrain(Vector2 trainPosition)
     {
         // Spawn a new train using the TrainSpawner
         var train = _spawner.Spawn();

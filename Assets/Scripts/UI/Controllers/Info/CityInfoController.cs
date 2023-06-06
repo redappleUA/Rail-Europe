@@ -10,7 +10,7 @@ public class CityInfoController : InfoController
     [SerializeField] TapController _tapController;
     [SerializeField] VibrateController _vibrateController;
 
-    private CityNameReference _clickedCity;
+    private CityView _clickedCity;
 
     private void Start()
     {
@@ -18,9 +18,9 @@ public class CityInfoController : InfoController
         Activate();
     }
 
-    protected override void Open(ClickableObject clickableObject)
+    protected override void Open(ClickableObjectView clickableObject)
     {
-        if (!_trainInfoController.gameObject.activeSelf && clickableObject.TryGetComponent(out CityNameReference city))
+        if (!_trainInfoController.gameObject.activeSelf && clickableObject.TryGetComponent(out CityView city))
         {
             Activate();
             if (gameObject.activeSelf)

@@ -773,7 +773,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 519420031}
-  _vibrateController: {fileID: 0}
 --- !u!4 &957549487
 Transform:
   m_ObjectHideFlags: 0

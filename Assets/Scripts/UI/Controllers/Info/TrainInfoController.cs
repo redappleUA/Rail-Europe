@@ -11,7 +11,7 @@ public class TrainInfoController : InfoController
     [SerializeField] TapController _tapController;
     [SerializeField] VibrateController _vibrateController;
 
-    private Train _clickedTrain;
+    private TrainView _clickedTrain;
 
     private void Start()
     {
@@ -19,9 +19,9 @@ public class TrainInfoController : InfoController
         Activate();
     }
 
-    protected override void Open(ClickableObject clickableObject)
+    protected override void Open(ClickableObjectView clickableObject)
     {
-        if (!_cityInfoController.gameObject.activeSelf && clickableObject.TryGetComponent(out Train train))
+        if (!_cityInfoController.gameObject.activeSelf && clickableObject.TryGetComponent(out TrainView train))
         {
             Activate();
             if (gameObject.activeSelf)

@@ -7,8 +7,8 @@ namespace Core.Models
     /// <summary>
     /// Модель, що хранить в собі всі мости, які розміщені на мапі
     /// </summary>
-    internal class BridgeModel : IModel<Bridge>
+    internal class BridgeModel : IModel<BridgeView>
     {
-        public List<Bridge> Elements { get; private set; } = new();
+        public List<BridgeView> Elements { get; private set; } = new();
     }
 }

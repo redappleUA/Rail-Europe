@@ -347,8 +347,8 @@ struct List_1_t96E9133B70FB6765E6B138E810D33E18901715DA;
 struct List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D;
 // System.Collections.Generic.List`1<UnityEngine.UIElements.Panel>
 struct List_1_t9FF902E193613BD654FD1CF8DBDEF7B872504919;
-// System.Collections.Generic.List`1<PassengerAttached>
-struct List_1_t7B46E1F0D0440FB0BFE60275C17252E42976860C;
+// System.Collections.Generic.List`1<PassengerView>
+struct List_1_t6EBCA818AAFEE3222396E80183005DD437B34346;
 // System.Collections.Generic.List`1<UnityEngine.UIElements.UIR.RenderChainTextEntry>
 struct List_1_t3ADC2CEE608F7E0043EBE4FD425E6C9AE43E19CC;
 // System.Collections.Generic.List`1<System.String>
@@ -731,8 +731,8 @@ struct Regex_tE773142C2BE45C5D362B0F815AFF831707A51772;
 struct RenderChainCommand_t4F70E36AF4BC3645C8F9C822B7A3ACE9CB815727;
 // UnityEngine.UIElements.RepaintData
 struct RepaintData_t90534752135661579EC254884F550545D001B5EA;
-// Route
-struct Route_t44F384933DBC8BF9629088C1CD7F3C32662BF143;
+// RouteScheme
+struct RouteScheme_tD87EDF7B60CC1CBFDF0E0E876AD80EFCCE622354;
 // System.Runtime.Serialization.SafeSerializationManager
 struct SafeSerializationManager_tCBB85B95DFD1634237140CD892E82D06ECB3F5E6;
 // Cysharp.Threading.Tasks.Internal.SingleAssignmentDisposable
@@ -769,8 +769,8 @@ struct Texture_t791CBB51219779964E0E8A2ED7C1AA5F92A4A700;
 struct TouchScreenKeyboard_tE87B78A3DAED69816B44C99270A734682E093E7A;
 // UnityEngine.UIElements.TouchScreenTextEditorEventHandler
 struct TouchScreenTextEditorEventHandler_t143C598DF9DB5D5BC853A203D3B2ABCA67321DA2;
-// Train
-struct Train_tE98824DD99F675C0AD60D520A462EAE401EB941C;
+// TrainView
+struct TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA;
 // System.ValueType
 struct ValueType_t6D9B272BD21782F0A9A14F2E41F85A50E97A986F;
 // UnityEngine.UIElements.VectorImage
@@ -5818,20 +5818,20 @@ struct Label_tC160668F9119CE0F5567021FB208E64A5B1C5B70_StaticFields
 	String_t* ___ussClassName_79;
 };
 
-// Train
-struct Train_tE98824DD99F675C0AD60D520A462EAE401EB941C  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
+// TrainView
+struct TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
-	// System.Single Train::_speed
+	// System.Single TrainView::_speed
 	float ____speed_4;
-	// UnityEngine.Transform[] Train::_passengerPositions
+	// UnityEngine.Transform[] TrainView::_passengerPositions
 	TransformU5BU5D_tBB9C5F5686CAE82E3D97D43DF0F3D68ABF75EC24* ____passengerPositions_5;
-	// Route Train::<Route>k__BackingField
-	Route_t44F384933DBC8BF9629088C1CD7F3C32662BF143* ___U3CRouteU3Ek__BackingField_6;
-	// System.Collections.Generic.List`1<PassengerAttached> Train::<Passengers>k__BackingField
-	List_1_t7B46E1F0D0440FB0BFE60275C17252E42976860C* ___U3CPassengersU3Ek__BackingField_7;
-	// UnityEngine.SpriteRenderer Train::<CitySpriteRenderer>k__BackingField
+	// RouteScheme TrainView::<Route>k__BackingField
+	RouteScheme_tD87EDF7B60CC1CBFDF0E0E876AD80EFCCE622354* ___U3CRouteU3Ek__BackingField_6;
+	// System.Collections.Generic.List`1<PassengerView> TrainView::<Passengers>k__BackingField
+	List_1_t6EBCA818AAFEE3222396E80183005DD437B34346* ___U3CPassengersU3Ek__BackingField_7;
+	// UnityEngine.SpriteRenderer TrainView::<CitySpriteRenderer>k__BackingField
 	SpriteRenderer_t1DD7FE258F072E1FA87D6577BA27225892B8047B* ___U3CCitySpriteRendererU3Ek__BackingField_8;
-	// UnityEngine.Sprite Train::<CitySprite>k__BackingField
+	// UnityEngine.Sprite TrainView::<CitySprite>k__BackingField
 	Sprite_tAFF74BC83CD68037494CB0B4F28CBDF8971CAB99* ___U3CCitySpriteU3Ek__BackingField_9;
 };
 #ifdef __clang__
@@ -27175,57 +27175,57 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ToUniTaskObserver_1__cctor_mE417679DD58E
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* TrainAction_1_Invoke_mC449903D48F8B300B3EEE1795F880CCF8986236E_Multicast(TrainAction_1_tFF3F39A6B19644E3C0396961C3E2892DD46CC51B* __this, RuntimeObject* ___component0, const RuntimeMethod* method)
+TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* TrainAction_1_Invoke_m217C40FDA78E3BD324F69375B234212C784A1CC2_Multicast(TrainAction_1_tFF3F39A6B19644E3C0396961C3E2892DD46CC51B* __this, RuntimeObject* ___component0, const RuntimeMethod* method)
 {
 	il2cpp_array_size_t length = __this->___delegates_13->max_length;
 	Delegate_t** delegatesToInvoke = reinterpret_cast<Delegate_t**>(__this->___delegates_13->GetAddressAtUnchecked(0));
-	Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* retVal = NULL;
+	TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* retVal = NULL;
 	for (il2cpp_array_size_t i = 0; i < length; i++)
 	{
 		TrainAction_1_tFF3F39A6B19644E3C0396961C3E2892DD46CC51B* currentDelegate = reinterpret_cast<TrainAction_1_tFF3F39A6B19644E3C0396961C3E2892DD46CC51B*>(delegatesToInvoke[i]);
-		typedef Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* (*FunctionPointerType) (RuntimeObject*, RuntimeObject*, const RuntimeMethod*);
+		typedef TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* (*FunctionPointerType) (RuntimeObject*, RuntimeObject*, const RuntimeMethod*);
 		retVal = ((FunctionPointerType)currentDelegate->___invoke_impl_1)((Il2CppObject*)currentDelegate->___method_code_6, ___component0, reinterpret_cast<RuntimeMethod*>(currentDelegate->___method_3));
 	}
 	return retVal;
 }
-Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* TrainAction_1_Invoke_mC449903D48F8B300B3EEE1795F880CCF8986236E_OpenInst(TrainAction_1_tFF3F39A6B19644E3C0396961C3E2892DD46CC51B* __this, RuntimeObject* ___component0, const RuntimeMethod* method)
+TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* TrainAction_1_Invoke_m217C40FDA78E3BD324F69375B234212C784A1CC2_OpenInst(TrainAction_1_tFF3F39A6B19644E3C0396961C3E2892DD46CC51B* __this, RuntimeObject* ___component0, const RuntimeMethod* method)
 {
 	NullCheck(___component0);
-	typedef Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* (*FunctionPointerType) (RuntimeObject*, const RuntimeMethod*);
+	typedef TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* (*FunctionPointerType) (RuntimeObject*, const RuntimeMethod*);
 	return ((FunctionPointerType)__this->___method_ptr_0)(___component0, method);
 }
-Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* TrainAction_1_Invoke_mC449903D48F8B300B3EEE1795F880CCF8986236E_OpenStatic(TrainAction_1_tFF3F39A6B19644E3C0396961C3E2892DD46CC51B* __this, RuntimeObject* ___component0, const RuntimeMethod* method)
+TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* TrainAction_1_Invoke_m217C40FDA78E3BD324F69375B234212C784A1CC2_OpenStatic(TrainAction_1_tFF3F39A6B19644E3C0396961C3E2892DD46CC51B* __this, RuntimeObject* ___component0, const RuntimeMethod* method)
 {
-	typedef Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* (*FunctionPointerType) (RuntimeObject*, const RuntimeMethod*);
+	typedef TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* (*FunctionPointerType) (RuntimeObject*, const RuntimeMethod*);
 	return ((FunctionPointerType)__this->___method_ptr_0)(___component0, method);
 }
-Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* TrainAction_1_Invoke_mC449903D48F8B300B3EEE1795F880CCF8986236E_OpenStaticInvoker(TrainAction_1_tFF3F39A6B19644E3C0396961C3E2892DD46CC51B* __this, RuntimeObject* ___component0, const RuntimeMethod* method)
+TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* TrainAction_1_Invoke_m217C40FDA78E3BD324F69375B234212C784A1CC2_OpenStaticInvoker(TrainAction_1_tFF3F39A6B19644E3C0396961C3E2892DD46CC51B* __this, RuntimeObject* ___component0, const RuntimeMethod* method)
 {
-	return InvokerFuncInvoker1< Train_tE98824DD99F675C0AD60D520A462EAE401EB941C*, RuntimeObject* >::Invoke(__this->___method_ptr_0, method, NULL, ___component0);
+	return InvokerFuncInvoker1< TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA*, RuntimeObject* >::Invoke(__this->___method_ptr_0, method, NULL, ___component0);
 }
-Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* TrainAction_1_Invoke_mC449903D48F8B300B3EEE1795F880CCF8986236E_ClosedStaticInvoker(TrainAction_1_tFF3F39A6B19644E3C0396961C3E2892DD46CC51B* __this, RuntimeObject* ___component0, const RuntimeMethod* method)
+TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* TrainAction_1_Invoke_m217C40FDA78E3BD324F69375B234212C784A1CC2_ClosedStaticInvoker(TrainAction_1_tFF3F39A6B19644E3C0396961C3E2892DD46CC51B* __this, RuntimeObject* ___component0, const RuntimeMethod* method)
 {
-	return InvokerFuncInvoker2< Train_tE98824DD99F675C0AD60D520A462EAE401EB941C*, RuntimeObject*, RuntimeObject* >::Invoke(__this->___method_ptr_0, method, NULL, __this->___m_target_2, ___component0);
+	return InvokerFuncInvoker2< TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA*, RuntimeObject*, RuntimeObject* >::Invoke(__this->___method_ptr_0, method, NULL, __this->___m_target_2, ___component0);
 }
-Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* TrainAction_1_Invoke_mC449903D48F8B300B3EEE1795F880CCF8986236E_OpenVirtual(TrainAction_1_tFF3F39A6B19644E3C0396961C3E2892DD46CC51B* __this, RuntimeObject* ___component0, const RuntimeMethod* method)
+TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* TrainAction_1_Invoke_m217C40FDA78E3BD324F69375B234212C784A1CC2_OpenVirtual(TrainAction_1_tFF3F39A6B19644E3C0396961C3E2892DD46CC51B* __this, RuntimeObject* ___component0, const RuntimeMethod* method)
 {
 	NullCheck(___component0);
-	return VirtualFuncInvoker0< Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* >::Invoke(il2cpp_codegen_method_get_slot(method), ___component0);
+	return VirtualFuncInvoker0< TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* >::Invoke(il2cpp_codegen_method_get_slot(method), ___component0);
 }
-Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* TrainAction_1_Invoke_mC449903D48F8B300B3EEE1795F880CCF8986236E_OpenInterface(TrainAction_1_tFF3F39A6B19644E3C0396961C3E2892DD46CC51B* __this, RuntimeObject* ___component0, const RuntimeMethod* method)
+TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* TrainAction_1_Invoke_m217C40FDA78E3BD324F69375B234212C784A1CC2_OpenInterface(TrainAction_1_tFF3F39A6B19644E3C0396961C3E2892DD46CC51B* __this, RuntimeObject* ___component0, const RuntimeMethod* method)
 {
 	NullCheck(___component0);
-	return InterfaceFuncInvoker0< Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* >::Invoke(il2cpp_codegen_method_get_slot(method), il2cpp_codegen_method_get_declaring_type(method), ___component0);
+	return InterfaceFuncInvoker0< TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* >::Invoke(il2cpp_codegen_method_get_slot(method), il2cpp_codegen_method_get_declaring_type(method), ___component0);
 }
-Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* TrainAction_1_Invoke_mC449903D48F8B300B3EEE1795F880CCF8986236E_OpenGenericVirtual(TrainAction_1_tFF3F39A6B19644E3C0396961C3E2892DD46CC51B* __this, RuntimeObject* ___component0, const RuntimeMethod* method)
+TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* TrainAction_1_Invoke_m217C40FDA78E3BD324F69375B234212C784A1CC2_OpenGenericVirtual(TrainAction_1_tFF3F39A6B19644E3C0396961C3E2892DD46CC51B* __this, RuntimeObject* ___component0, const RuntimeMethod* method)
 {
 	NullCheck(___component0);
-	return GenericVirtualFuncInvoker0< Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* >::Invoke(method, ___component0);
+	return GenericVirtualFuncInvoker0< TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* >::Invoke(method, ___component0);
 }
-Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* TrainAction_1_Invoke_mC449903D48F8B300B3EEE1795F880CCF8986236E_OpenGenericInterface(TrainAction_1_tFF3F39A6B19644E3C0396961C3E2892DD46CC51B* __this, RuntimeObject* ___component0, const RuntimeMethod* method)
+TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* TrainAction_1_Invoke_m217C40FDA78E3BD324F69375B234212C784A1CC2_OpenGenericInterface(TrainAction_1_tFF3F39A6B19644E3C0396961C3E2892DD46CC51B* __this, RuntimeObject* ___component0, const RuntimeMethod* method)
 {
 	NullCheck(___component0);
-	return GenericInterfaceFuncInvoker0< Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* >::Invoke(method, ___component0);
+	return GenericInterfaceFuncInvoker0< TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* >::Invoke(method, ___component0);
 }
 // System.Void RouteController/TrainAction`1<System.Object>::.ctor(System.Object,System.IntPtr)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TrainAction_1__ctor_m8892F8F72873B17674B5AC78E9AEF72F9594D159_gshared (TrainAction_1_tFF3F39A6B19644E3C0396961C3E2892DD46CC51B* __this, RuntimeObject* ___object0, intptr_t ___method1, const RuntimeMethod* method) 
@@ -27241,12 +27241,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TrainAction_1__ctor_m8892F8F72873B17674B
 		bool isOpen = parameterCount == 1;
 		if (il2cpp_codegen_call_method_via_invoker((RuntimeMethod*)___method1))
 			if (isOpen)
-				__this->___invoke_impl_1 = (intptr_t)&TrainAction_1_Invoke_mC449903D48F8B300B3EEE1795F880CCF8986236E_OpenStaticInvoker;
+				__this->___invoke_impl_1 = (intptr_t)&TrainAction_1_Invoke_m217C40FDA78E3BD324F69375B234212C784A1CC2_OpenStaticInvoker;
 			else
-				__this->___invoke_impl_1 = (intptr_t)&TrainAction_1_Invoke_mC449903D48F8B300B3EEE1795F880CCF8986236E_ClosedStaticInvoker;
+				__this->___invoke_impl_1 = (intptr_t)&TrainAction_1_Invoke_m217C40FDA78E3BD324F69375B234212C784A1CC2_ClosedStaticInvoker;
 		else
 			if (isOpen)
-				__this->___invoke_impl_1 = (intptr_t)&TrainAction_1_Invoke_mC449903D48F8B300B3EEE1795F880CCF8986236E_OpenStatic;
+				__this->___invoke_impl_1 = (intptr_t)&TrainAction_1_Invoke_m217C40FDA78E3BD324F69375B234212C784A1CC2_OpenStatic;
 			else
 				{
 					__this->___invoke_impl_1 = (intptr_t)__this->___method_ptr_0;
@@ -27262,18 +27262,18 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TrainAction_1__ctor_m8892F8F72873B17674B
 			{
 				if (il2cpp_codegen_method_is_generic_instance_method((RuntimeMethod*)___method1))
 					if (il2cpp_codegen_method_is_interface_method((RuntimeMethod*)___method1))
-						__this->___invoke_impl_1 = (intptr_t)&TrainAction_1_Invoke_mC449903D48F8B300B3EEE1795F880CCF8986236E_OpenGenericInterface;
+						__this->___invoke_impl_1 = (intptr_t)&TrainAction_1_Invoke_m217C40FDA78E3BD324F69375B234212C784A1CC2_OpenGenericInterface;
 					else
-						__this->___invoke_impl_1 = (intptr_t)&TrainAction_1_Invoke_mC449903D48F8B300B3EEE1795F880CCF8986236E_OpenGenericVirtual;
+						__this->___invoke_impl_1 = (intptr_t)&TrainAction_1_Invoke_m217C40FDA78E3BD324F69375B234212C784A1CC2_OpenGenericVirtual;
 				else
 					if (il2cpp_codegen_method_is_interface_method((RuntimeMethod*)___method1))
-						__this->___invoke_impl_1 = (intptr_t)&TrainAction_1_Invoke_mC449903D48F8B300B3EEE1795F880CCF8986236E_OpenInterface;
+						__this->___invoke_impl_1 = (intptr_t)&TrainAction_1_Invoke_m217C40FDA78E3BD324F69375B234212C784A1CC2_OpenInterface;
 					else
-						__this->___invoke_impl_1 = (intptr_t)&TrainAction_1_Invoke_mC449903D48F8B300B3EEE1795F880CCF8986236E_OpenVirtual;
+						__this->___invoke_impl_1 = (intptr_t)&TrainAction_1_Invoke_m217C40FDA78E3BD324F69375B234212C784A1CC2_OpenVirtual;
 			}
 			else
 			{
-				__this->___invoke_impl_1 = (intptr_t)&TrainAction_1_Invoke_mC449903D48F8B300B3EEE1795F880CCF8986236E_OpenInst;
+				__this->___invoke_impl_1 = (intptr_t)&TrainAction_1_Invoke_m217C40FDA78E3BD324F69375B234212C784A1CC2_OpenInst;
 			}
 		}
 		else
@@ -27284,12 +27284,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TrainAction_1__ctor_m8892F8F72873B17674B
 			__this->___method_code_6 = (intptr_t)__this->___m_target_2;
 		}
 	}
-	__this->___extra_arg_5 = (intptr_t)&TrainAction_1_Invoke_mC449903D48F8B300B3EEE1795F880CCF8986236E_Multicast;
+	__this->___extra_arg_5 = (intptr_t)&TrainAction_1_Invoke_m217C40FDA78E3BD324F69375B234212C784A1CC2_Multicast;
 }
-// Train RouteController/TrainAction`1<System.Object>::Invoke(T)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* TrainAction_1_Invoke_mC449903D48F8B300B3EEE1795F880CCF8986236E_gshared (TrainAction_1_tFF3F39A6B19644E3C0396961C3E2892DD46CC51B* __this, RuntimeObject* ___component0, const RuntimeMethod* method) 
+// TrainView RouteController/TrainAction`1<System.Object>::Invoke(T)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* TrainAction_1_Invoke_m217C40FDA78E3BD324F69375B234212C784A1CC2_gshared (TrainAction_1_tFF3F39A6B19644E3C0396961C3E2892DD46CC51B* __this, RuntimeObject* ___component0, const RuntimeMethod* method) 
 {
-	typedef Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* (*FunctionPointerType) (RuntimeObject*, RuntimeObject*, const RuntimeMethod*);
+	typedef TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* (*FunctionPointerType) (RuntimeObject*, RuntimeObject*, const RuntimeMethod*);
 	return ((FunctionPointerType)__this->___invoke_impl_1)((Il2CppObject*)__this->___method_code_6, ___component0, reinterpret_cast<RuntimeMethod*>(__this->___method_3));
 }
 // System.IAsyncResult RouteController/TrainAction`1<System.Object>::BeginInvoke(T,System.AsyncCallback,System.Object)
@@ -27299,11 +27299,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* TrainAction_1_BeginInvoke_m9DC
 	__d_args[0] = ___component0;
 	return (RuntimeObject*)il2cpp_codegen_delegate_begin_invoke((RuntimeDelegate*)__this, __d_args, (RuntimeDelegate*)___callback1, (RuntimeObject*)___object2);
 }
-// Train RouteController/TrainAction`1<System.Object>::EndInvoke(System.IAsyncResult)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* TrainAction_1_EndInvoke_m6EB7AEE7DC0C58C91BF197EA2C3AF01CC4A67059_gshared (TrainAction_1_tFF3F39A6B19644E3C0396961C3E2892DD46CC51B* __this, RuntimeObject* ___result0, const RuntimeMethod* method) 
+// TrainView RouteController/TrainAction`1<System.Object>::EndInvoke(System.IAsyncResult)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* TrainAction_1_EndInvoke_mF2FA04A37D41F771ED8D3EFDED5DBADBA07ECF2D_gshared (TrainAction_1_tFF3F39A6B19644E3C0396961C3E2892DD46CC51B* __this, RuntimeObject* ___result0, const RuntimeMethod* method) 
 {
 	RuntimeObject *__result = il2cpp_codegen_delegate_end_invoke((Il2CppAsyncResult*) ___result0, 0);
-	return (Train_tE98824DD99F675C0AD60D520A462EAE401EB941C*)__result;
+	return (TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA*)__result;
 }
 #ifdef __clang__
 #pragma clang diagnostic pop
@@ -27313,36 +27313,36 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Train_tE98824DD99F675C0AD60D520A462EAE401EB94
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* TrainAction_1_Invoke_m4070187DB9AA426FFA2243BB535AF1DB28D59AE8_Multicast(TrainAction_1_t5C6AFD2FA774BD34CF036F7EC0F977DA25AACC5A* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___component0, const RuntimeMethod* method)
+TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* TrainAction_1_Invoke_mC28B4DC7820C84544C88D8A61F4493D793BFA492_Multicast(TrainAction_1_t5C6AFD2FA774BD34CF036F7EC0F977DA25AACC5A* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___component0, const RuntimeMethod* method)
 {
 	il2cpp_array_size_t length = __this->___delegates_13->max_length;
 	Delegate_t** delegatesToInvoke = reinterpret_cast<Delegate_t**>(__this->___delegates_13->GetAddressAtUnchecked(0));
-	Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* retVal = NULL;
+	TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* retVal = NULL;
 	for (il2cpp_array_size_t i = 0; i < length; i++)
 	{
 		TrainAction_1_t5C6AFD2FA774BD34CF036F7EC0F977DA25AACC5A* currentDelegate = reinterpret_cast<TrainAction_1_t5C6AFD2FA774BD34CF036F7EC0F977DA25AACC5A*>(delegatesToInvoke[i]);
-		typedef Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* (*FunctionPointerType) (RuntimeObject*, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7, const RuntimeMethod*);
+		typedef TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* (*FunctionPointerType) (RuntimeObject*, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7, const RuntimeMethod*);
 		retVal = ((FunctionPointerType)currentDelegate->___invoke_impl_1)((Il2CppObject*)currentDelegate->___method_code_6, ___component0, reinterpret_cast<RuntimeMethod*>(currentDelegate->___method_3));
 	}
 	return retVal;
 }
-Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* TrainAction_1_Invoke_m4070187DB9AA426FFA2243BB535AF1DB28D59AE8_OpenInst(TrainAction_1_t5C6AFD2FA774BD34CF036F7EC0F977DA25AACC5A* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___component0, const RuntimeMethod* method)
+TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* TrainAction_1_Invoke_mC28B4DC7820C84544C88D8A61F4493D793BFA492_OpenInst(TrainAction_1_t5C6AFD2FA774BD34CF036F7EC0F977DA25AACC5A* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___component0, const RuntimeMethod* method)
 {
-	typedef Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* (*FunctionPointerType) (Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7, const RuntimeMethod*);
+	typedef TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* (*FunctionPointerType) (Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7, const RuntimeMethod*);
 	return ((FunctionPointerType)__this->___method_ptr_0)(___component0, method);
 }
-Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* TrainAction_1_Invoke_m4070187DB9AA426FFA2243BB535AF1DB28D59AE8_OpenStatic(TrainAction_1_t5C6AFD2FA774BD34CF036F7EC0F977DA25AACC5A* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___component0, const RuntimeMethod* method)
+TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* TrainAction_1_Invoke_mC28B4DC7820C84544C88D8A61F4493D793BFA492_OpenStatic(TrainAction_1_t5C6AFD2FA774BD34CF036F7EC0F977DA25AACC5A* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___component0, const RuntimeMethod* method)
 {
-	typedef Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* (*FunctionPointerType) (Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7, const RuntimeMethod*);
+	typedef TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* (*FunctionPointerType) (Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7, const RuntimeMethod*);
 	return ((FunctionPointerType)__this->___method_ptr_0)(___component0, method);
 }
-Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* TrainAction_1_Invoke_m4070187DB9AA426FFA2243BB535AF1DB28D59AE8_OpenStaticInvoker(TrainAction_1_t5C6AFD2FA774BD34CF036F7EC0F977DA25AACC5A* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___component0, const RuntimeMethod* method)
+TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* TrainAction_1_Invoke_mC28B4DC7820C84544C88D8A61F4493D793BFA492_OpenStaticInvoker(TrainAction_1_t5C6AFD2FA774BD34CF036F7EC0F977DA25AACC5A* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___component0, const RuntimeMethod* method)
 {
-	return InvokerFuncInvoker1< Train_tE98824DD99F675C0AD60D520A462EAE401EB941C*, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 >::Invoke(__this->___method_ptr_0, method, NULL, ___component0);
+	return InvokerFuncInvoker1< TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA*, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 >::Invoke(__this->___method_ptr_0, method, NULL, ___component0);
 }
-Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* TrainAction_1_Invoke_m4070187DB9AA426FFA2243BB535AF1DB28D59AE8_ClosedStaticInvoker(TrainAction_1_t5C6AFD2FA774BD34CF036F7EC0F977DA25AACC5A* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___component0, const RuntimeMethod* method)
+TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* TrainAction_1_Invoke_mC28B4DC7820C84544C88D8A61F4493D793BFA492_ClosedStaticInvoker(TrainAction_1_t5C6AFD2FA774BD34CF036F7EC0F977DA25AACC5A* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___component0, const RuntimeMethod* method)
 {
-	return InvokerFuncInvoker2< Train_tE98824DD99F675C0AD60D520A462EAE401EB941C*, RuntimeObject*, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 >::Invoke(__this->___method_ptr_0, method, NULL, __this->___m_target_2, ___component0);
+	return InvokerFuncInvoker2< TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA*, RuntimeObject*, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 >::Invoke(__this->___method_ptr_0, method, NULL, __this->___m_target_2, ___component0);
 }
 // System.Void RouteController/TrainAction`1<UnityEngine.Vector2>::.ctor(System.Object,System.IntPtr)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TrainAction_1__ctor_m8C70A2244FE3C2CB3D4BDB54A39940F1EAD6FAAE_gshared (TrainAction_1_t5C6AFD2FA774BD34CF036F7EC0F977DA25AACC5A* __this, RuntimeObject* ___object0, intptr_t ___method1, const RuntimeMethod* method) 
@@ -27358,12 +27358,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TrainAction_1__ctor_m8C70A2244FE3C2CB3D4
 		bool isOpen = parameterCount == 1;
 		if (il2cpp_codegen_call_method_via_invoker((RuntimeMethod*)___method1))
 			if (isOpen)
-				__this->___invoke_impl_1 = (intptr_t)&TrainAction_1_Invoke_m4070187DB9AA426FFA2243BB535AF1DB28D59AE8_OpenStaticInvoker;
+				__this->___invoke_impl_1 = (intptr_t)&TrainAction_1_Invoke_mC28B4DC7820C84544C88D8A61F4493D793BFA492_OpenStaticInvoker;
 			else
-				__this->___invoke_impl_1 = (intptr_t)&TrainAction_1_Invoke_m4070187DB9AA426FFA2243BB535AF1DB28D59AE8_ClosedStaticInvoker;
+				__this->___invoke_impl_1 = (intptr_t)&TrainAction_1_Invoke_mC28B4DC7820C84544C88D8A61F4493D793BFA492_ClosedStaticInvoker;
 		else
 			if (isOpen)
-				__this->___invoke_impl_1 = (intptr_t)&TrainAction_1_Invoke_m4070187DB9AA426FFA2243BB535AF1DB28D59AE8_OpenStatic;
+				__this->___invoke_impl_1 = (intptr_t)&TrainAction_1_Invoke_mC28B4DC7820C84544C88D8A61F4493D793BFA492_OpenStatic;
 			else
 				{
 					__this->___invoke_impl_1 = (intptr_t)__this->___method_ptr_0;
@@ -27377,12 +27377,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TrainAction_1__ctor_m8C70A2244FE3C2CB3D4
 		__this->___invoke_impl_1 = (intptr_t)__this->___method_ptr_0;
 		__this->___method_code_6 = (intptr_t)__this->___m_target_2;
 	}
-	__this->___extra_arg_5 = (intptr_t)&TrainAction_1_Invoke_m4070187DB9AA426FFA2243BB535AF1DB28D59AE8_Multicast;
+	__this->___extra_arg_5 = (intptr_t)&TrainAction_1_Invoke_mC28B4DC7820C84544C88D8A61F4493D793BFA492_Multicast;
 }
-// Train RouteController/TrainAction`1<UnityEngine.Vector2>::Invoke(T)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* TrainAction_1_Invoke_m4070187DB9AA426FFA2243BB535AF1DB28D59AE8_gshared (TrainAction_1_t5C6AFD2FA774BD34CF036F7EC0F977DA25AACC5A* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___component0, const RuntimeMethod* method) 
+// TrainView RouteController/TrainAction`1<UnityEngine.Vector2>::Invoke(T)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* TrainAction_1_Invoke_mC28B4DC7820C84544C88D8A61F4493D793BFA492_gshared (TrainAction_1_t5C6AFD2FA774BD34CF036F7EC0F977DA25AACC5A* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___component0, const RuntimeMethod* method) 
 {
-	typedef Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* (*FunctionPointerType) (RuntimeObject*, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7, const RuntimeMethod*);
+	typedef TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* (*FunctionPointerType) (RuntimeObject*, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7, const RuntimeMethod*);
 	return ((FunctionPointerType)__this->___invoke_impl_1)((Il2CppObject*)__this->___method_code_6, ___component0, reinterpret_cast<RuntimeMethod*>(__this->___method_3));
 }
 // System.IAsyncResult RouteController/TrainAction`1<UnityEngine.Vector2>::BeginInvoke(T,System.AsyncCallback,System.Object)
@@ -27398,11 +27398,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* TrainAction_1_BeginInvoke_mA03
 	__d_args[0] = Box(Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7_il2cpp_TypeInfo_var, &___component0);
 	return (RuntimeObject*)il2cpp_codegen_delegate_begin_invoke((RuntimeDelegate*)__this, __d_args, (RuntimeDelegate*)___callback1, (RuntimeObject*)___object2);
 }
-// Train RouteController/TrainAction`1<UnityEngine.Vector2>::EndInvoke(System.IAsyncResult)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Train_tE98824DD99F675C0AD60D520A462EAE401EB941C* TrainAction_1_EndInvoke_mF299114F6E9500EF141751A0C4CBD1AD70DDD8CB_gshared (TrainAction_1_t5C6AFD2FA774BD34CF036F7EC0F977DA25AACC5A* __this, RuntimeObject* ___result0, const RuntimeMethod* method) 
+// TrainView RouteController/TrainAction`1<UnityEngine.Vector2>::EndInvoke(System.IAsyncResult)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA* TrainAction_1_EndInvoke_m7731F87FE8E718B970DC82D414374923DD77AC61_gshared (TrainAction_1_t5C6AFD2FA774BD34CF036F7EC0F977DA25AACC5A* __this, RuntimeObject* ___result0, const RuntimeMethod* method) 
 {
 	RuntimeObject *__result = il2cpp_codegen_delegate_end_invoke((Il2CppAsyncResult*) ___result0, 0);
-	return (Train_tE98824DD99F675C0AD60D520A462EAE401EB941C*)__result;
+	return (TrainView_t04271B3C61146829AA24E81393F2DF6B7BEA06CA*)__result;
 }
 #ifdef __clang__
 #pragma clang diagnostic pop

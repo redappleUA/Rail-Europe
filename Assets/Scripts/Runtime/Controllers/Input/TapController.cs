@@ -8,10 +8,9 @@ using UnityEngine.InputSystem;
 
 public class TapController : MonoBehaviour
 {
-    public event Action<ClickableObject> OnTapStarted, OnTapMoved, OnTapEnded, OnOneTap;
+    public event Action<ClickableObjectView> OnTapStarted, OnTapMoved, OnTapEnded, OnOneTap;
 
     [SerializeField] Camera _camera;
-    [SerializeField] VibrateController _vibrateController;
 
     private Control _control = null;
     private Coroutine _coroutine = null;
@@ -51,12 +50,12 @@ public class TapController : MonoBehaviour
         //Check all elements on this position
         RaycastHit2D[] hits = Physics2D.RaycastAll(ray.origin, ray.direction);
 
-        Dictionary<Transform, ClickableObject> targets = new();
+        Dictionary<Transform, ClickableObjectView> targets = new();
 
         //Add element if it clickable
         for (int i = 0; i < hits.Length; i++)
         {
-            ClickableObject target = hits[i].transform.GetComponent<ClickableObject>();
+            ClickableObjectView target = hits[i].transform.GetComponent<ClickableObjectView>();
 
             if (target != null)
                 targets.Add(hits[i].transform, target);
@@ -68,7 +67,7 @@ public class TapController : MonoBehaviour
             .FirstOrDefault();
 
         _startTarget = targetTransform;
-        _isTrain = targetTransform != null && targetTransform.TryGetComponent(out Train _);
+        _isTrain = targetTransform != null && targetTransform.TryGetComponent(out TrainView _);
 
         if (targetTransform != null && targets[targetTransform].IsValid)
         {
@@ -91,12 +90,12 @@ public class TapController : MonoBehaviour
             //Check all elements on this position
             RaycastHit2D[] hits = Physics2D.RaycastAll(ray.origin, ray.direction, 100);
 
-            Dictionary<Transform, ClickableObject> targets = new();
+            Dictionary<Transform, ClickableObjectView> targets = new();
 
             //Add element if it clickable
             for (int i = 0; i < hits.Length; i++)
             {
-                if (hits[i].transform.TryGetComponent<ClickableObject>(out var target))
+                if (hits[i].transform.TryGetComponent<ClickableObjectView>(out var target))
                 {
                     targets.Add(hits[i].transform, target);
                 }
@@ -109,7 +108,7 @@ public class TapController : MonoBehaviour
 
             _preLastTarget = targetTransform;
 
-            ClickableObject tap = null;
+            ClickableObjectView tap = null;
 
             bool isValid = targetTransform != null && targets[targetTransform].IsValid;
 
@@ -139,12 +138,12 @@ public class TapController : MonoBehaviour
         //Check all elements on this position
         RaycastHit2D[] hits = Physics2D.RaycastAll(ray.origin, ray.direction, 100);
 
-        Dictionary<Transform, ClickableObject> targets = new();
+        Dictionary<Transform, ClickableObjectView> targets = new();
 
         //Add element if it clickable
         for (int i = 0; i < hits.Length; i++)
         {
-            if (hits[i].transform.TryGetComponent<ClickableObject>(out var target))
+            if (hits[i].transform.TryGetComponent<ClickableObjectView>(out var target))
             {
                 targets.Add(hits[i].transform, target);
             }
@@ -155,7 +154,7 @@ public class TapController : MonoBehaviour
             .OrderBy(hit => Vector3.Distance(hit.transform.position, ray.origin))
             .FirstOrDefault();
 
-        ClickableObject tap = null;
+        ClickableObjectView tap = null;
 
         bool isValid = targetTransform != null && targets[targetTransform].IsValid;
 
@@ -169,12 +168,10 @@ public class TapController : MonoBehaviour
                 if (_startTarget == targetTransform && _preLastTarget == targetTransform)
                 {
                     OnOneTap(tap);
-                    Vibration.Vibrate(_vibrateController.VibrateDuration, _vibrateController.Amplitude);
                 }
                 if (!_isTrain)
                 {
                     OnTapEnded(tap);
-                    Vibration.Vibrate(_vibrateController.VibrateDuration, _vibrateController.Amplitude);
                 }
                 _isTargetTouching = false;
             }

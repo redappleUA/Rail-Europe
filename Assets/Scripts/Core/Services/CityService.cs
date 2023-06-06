@@ -8,24 +8,24 @@ using Random = UnityEngine.Random;
 
 public static class CityService
 {
-    public static List<CityNameReference> Cities { get { return _cityModel.Elements; } }
+    public static List<CityView> Cities { get { return _cityModel.Elements; } }
 
     private static readonly CityModel _cityModel = new();
     private static City lastGeneratedCity;
 
-    public static CityNameReference GetCityNameReference(City city)
+    public static CityView GetCityNameReference(City city)
     {
         return Cities.Find(item => (item.CityName == city));
     }
 
-    public static City GetCityFromObject(ClickableObject clickableObject)
+    public static City GetCityFromObject(ClickableObjectView clickableObject)
     {
-        return clickableObject.GetComponent<CityNameReference>().CityName;
+        return clickableObject.GetComponent<CityView>().CityName;
     }
 
-    public static CityNameReference GetCityNameReferenceFromObject(ClickableObject clickableObject)
+    public static CityView GetCityNameReferenceFromObject(ClickableObjectView clickableObject)
     {
-        return clickableObject.GetComponent<CityNameReference>();
+        return clickableObject.GetComponent<CityView>();
     }
 
     public static City GetRandomCity()
@@ -42,13 +42,13 @@ public static class CityService
         return randomCity;
     }
 
-    public static CityNameReference GetRandomCityNameReference()
+    public static CityView GetRandomCityNameReference()
     {
         return Cities[Random.Range(0, CityService.Cities.Count)];
     }
 
 
-    public static City GetCurrentCity(Train train, Way way) 
+    public static City GetCurrentCity(TrainView train, BaseWayView way) 
     { 
         // ќтримуЇмо позиц≥ю пот€га
         Vector3 trainPosition = train.transform.position;
@@ -68,7 +68,7 @@ public static class CityService
         }
     }
 
-    public static void AddCity(CityNameReference city)
+    public static void AddCity(CityView city)
     {
         _cityModel.Elements.Add(city);
     }

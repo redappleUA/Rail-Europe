@@ -42,7 +42,7 @@ public class PassengerController : MonoBehaviour
         #region Add passengers
         if (_train.Passengers.Count < MAX_COUNT)
         {
-            var cityNameRef = CityService.GetCityNameReference(CityService.GetCurrentCity(_train, way));
+            var cityNameRef = CityService.GetCityView(CityService.GetCurrentCity(_train, way));
 
             for (int i = 0; i < cityNameRef.Passengers.Count; i++)
             {

@@ -17,7 +17,7 @@ public class PassengerSpawner : MonoBehaviour, ISpawner
     {
         while (!_defeatController.IsDefeat)
         {
-            var randomCity = CityService.GetRandomCityNameReference();
+            var randomCity = CityService.GetRandomCityView();
             var cityTo = CityService.GetRandomCity();
 
             while(cityTo == randomCity.CityName)
@@ -34,7 +34,7 @@ public class PassengerSpawner : MonoBehaviour, ISpawner
 
             PassengerScheme passenger = new(randomCity.CityName, cityTo);
 
-            PassengerView passengerAttached = SpawnPassengerAttached(ref randomCity, passenger);
+            PassengerView passengerAttached = SpawnPassengerView(ref randomCity, passenger);
             while( passengerAttached == null )
                 yield return null;
 
@@ -50,11 +50,11 @@ public class PassengerSpawner : MonoBehaviour, ISpawner
         }
     }
 
-    private PassengerView SpawnPassengerAttached(ref CityView city, PassengerScheme passenger)
+    private PassengerView SpawnPassengerView(ref CityView city, PassengerScheme passenger)
     {
-        var scenePassenger = PassengerService.InstantiateAttachedPassenger().GetComponent<PassengerView>();
-        scenePassenger.Construct(passenger, city);
+        var passengerView = PassengerService.InstantiatePassengerView().GetComponent<PassengerView>();
+        passengerView.Construct(passenger, city);
 
-        return scenePassenger;
+        return passengerView;
     }
 }

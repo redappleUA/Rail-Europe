@@ -8,7 +8,6 @@ public static class PassengerService
     private const int MAX_SPAWN_COUNT = 4;
     public static void SetPassengerTransform(IPassengerPosition positions, PassengerView passenger)
     {
-        //for (int i = 0; i < positions.PassengerPositions.Length; i++)
         for (int i = positions.PassengerPositions.Length - 1; i >= 0; i--)
         {
             var positionTransform = positions.PassengerPositions[i];
@@ -21,7 +20,7 @@ public static class PassengerService
         }
     }
 
-    public static GameObject InstantiateAttachedPassenger()
+    public static GameObject InstantiatePassengerView()
     {
         GameObject passengerAttached = new("Passanger");
         passengerAttached.AddComponent<PassengerView>();

@@ -28,7 +28,7 @@ public class RouteController : BaseUIPopUp
 
     private void AddCityToList(ClickableObjectView clickableObject)
     {
-        var city = CityService.GetCityNameReferenceFromObject(clickableObject);
+        var city = CityService.GetCityViewFromObject(clickableObject);
 
         if (city != null && !_cities.Contains(city))
         {
@@ -39,7 +39,7 @@ public class RouteController : BaseUIPopUp
 
     private void MakeRoute(ClickableObjectView _)
     {
-        if (CheckWaysOnActivity() && CheckInactiveRailBetweenCities())
+        if (CheckWaysOnActivity()) //&& CheckInactiveRailBetweenCities())
         {
             //ƒодаЇмо м≥ста в пот€г
             foreach (var city in _cities)

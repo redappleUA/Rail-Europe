@@ -13,7 +13,7 @@ public static class CityService
     private static readonly CityModel _cityModel = new();
     private static City lastGeneratedCity;
 
-    public static CityView GetCityNameReference(City city)
+    public static CityView GetCityView(City city)
     {
         return Cities.Find(item => (item.CityName == city));
     }
@@ -23,7 +23,7 @@ public static class CityService
         return clickableObject.GetComponent<CityView>().CityName;
     }
 
-    public static CityView GetCityNameReferenceFromObject(ClickableObjectView clickableObject)
+    public static CityView GetCityViewFromObject(ClickableObjectView clickableObject)
     {
         return clickableObject.GetComponent<CityView>();
     }
@@ -42,7 +42,7 @@ public static class CityService
         return randomCity;
     }
 
-    public static CityView GetRandomCityNameReference()
+    public static CityView GetRandomCityView()
     {
         return Cities[Random.Range(0, CityService.Cities.Count)];
     }
@@ -54,8 +54,8 @@ public static class CityService
         Vector3 trainPosition = train.transform.position;
 
         // Визначаємо відстань до міст CityA і CityB
-        float distanceToCityA = Vector3.Distance(trainPosition, GetCityNameReference(way.CityA).transform.position);
-        float distanceToCityB = Vector3.Distance(trainPosition, GetCityNameReference(way.CityB).transform.position);
+        float distanceToCityA = Vector3.Distance(trainPosition, GetCityView(way.CityA).transform.position);
+        float distanceToCityB = Vector3.Distance(trainPosition, GetCityView(way.CityB).transform.position);
 
         // Порівнюємо відстані та повертаємо поточне місто
         if (distanceToCityA < distanceToCityB)

@@ -30,7 +30,7 @@ public class PassengerView : MonoBehaviour
     private async UniTaskVoid OnStart()
     {
         CitySprite = await CityService.LoadCitySpite(Passenger.CityTo);
-        CityNameRefSpawn = CityService.GetCityNameReference(Passenger.CitySpawn);
+        CityNameRefSpawn = CityService.GetCityView(Passenger.CitySpawn);
 
         //Set sprite
         var spriteRenderer = GetComponent<SpriteRenderer>();

@@ -914,8 +914,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timeToIncreaseRails: 15
-  _timeToIncreaseBridge: 90
-  _timeToIncreaseTrain: 50
+  _timeToIncreaseBridge: 100
+  _timeToIncreaseTrain: 130
   _defeatController: {fileID: 975551174}
 --- !u!114 &975551174
 MonoBehaviour:
